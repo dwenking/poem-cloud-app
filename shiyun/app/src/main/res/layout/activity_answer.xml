@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/mapback2">
+
+
+    <Button
+        android:id="@+id/choice1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/choicelight"
+        android:text="   关卡一 · 飞花令"
+        android:textSize="30dp"
+        android:fontFamily="@font/jianshi_default"
+        ></Button>
+
+    <Button
+        android:id="@+id/choice2"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/choicelight"
+        android:text="   关卡二 · 填诗句"
+        android:textSize="30dp"
+        android:fontFamily="@font/jianshi_default"
+        ></Button>
+
+    <Button
+        android:id="@+id/choice3"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/choicelight"
+        android:text="   关卡三 · 悟诗意"
+        android:textSize="30dp"
+        android:fontFamily="@font/jianshi_default"
+        ></Button>
+
+</LinearLayout>

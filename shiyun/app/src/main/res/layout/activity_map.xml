@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@xml/map_layer">
+
+
+    <Button
+        android:id="@+id/jishi"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="150dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        android:text="即事感怀"
+        android:textColor="#19160F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/huaigu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <Button
+        android:id="@+id/zhengzhan"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
+        android:layout_marginBottom="150dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        android:text="边塞征战"
+        android:textColor="#19160F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/yongwu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <Button
+        android:id="@+id/yongwu"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="100dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        android:text="咏物言志"
+        android:textColor="#19160F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/xiejing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/huaigu"
+        app:layout_constraintTop_toBottomOf="@+id/zhengzhan"></Button>
+
+    <Button
+        android:id="@+id/huaigu"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="200dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        android:text="怀古咏史"
+        android:textColor="#19160F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/yongwu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jishi"></Button>
+
+    <Button
+        android:id="@+id/xiejing"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="264dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        android:text="写景抒情"
+        android:textColor="#19160F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/huaigu"
+        app:layout_constraintTop_toBottomOf="@+id/yongwu"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

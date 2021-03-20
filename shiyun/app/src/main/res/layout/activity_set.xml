@@ -1,0 +1,156 @@
+<!--
+  ~ Created by wingjay on 11/16/16 3:31 PM
+  ~ Copyright (c) 2016.  All rights reserved.
+  ~
+  ~ Last modified 11/10/16 11:05 AM
+  ~
+  ~ Reach me: https://github.com/wingjay
+  ~ Email: yinjiesh@126.com
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_container"
+    style="@style/NormalBg"
+    android:background="@drawable/mapback2"
+    android:scrollbars="none">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_16"
+            >
+
+            <TextView
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16"
+                android:text="@string/user_setting"
+                android:fontFamily="@font/jianshi_default"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <Button
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/vertical_reading"
+                        android:fontFamily="@font/jianshi_default"
+                        android:background="@color/transparent"
+                        />
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/customize_bg_color"
+                    style="@style/ClickableTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="@dimen/margin_16"
+                    android:fontFamily="@font/jianshi_default"
+                    android:text="@string/customize_background_color"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_18"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16"
+                android:text="@string/support_info"
+                android:fontFamily="@font/jianshi_default"
+                />
+
+
+            <Button
+                android:id="@+id/send_feedback"
+                style="@style/ClickableTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="16dp"
+                android:fontFamily="@font/jianshi_default"
+                android:text="@string/user_feedback"/>
+
+            <RelativeLayout
+                android:id="@+id/version_upgrade"
+                style="@style/PressableBg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/version_upgrade_title"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/margin_16"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:fontFamily="@font/jianshi_default"
+                    android:background="@color/transparent"
+                    android:text="@string/version_upgrade"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_18"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16"
+                android:text="@string/account_info"
+                android:fontFamily="@font/jianshi_default"
+                />
+
+            <Button
+                android:id="@+id/logout"
+                style="@style/ClickableTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="16dp"
+                android:fontFamily="@font/jianshi_default"
+                android:text="@string/logout"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
