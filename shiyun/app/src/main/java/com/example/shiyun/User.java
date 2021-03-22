@@ -9,10 +9,6 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 @Table(databaseName = AppDatabase.NAME, tableName = "userTable")
 public class User extends BaseModel {
 
-    @Column
-    @PrimaryKey(autoincrement = true)
-    int id;
-
     public String getMail() {
         return mail;
     }
@@ -29,10 +25,21 @@ public class User extends BaseModel {
         this.code = code;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
     @Column(name = "MAIL")
+    @PrimaryKey
     private String mail;
 
     @Column(name = "CODE")
     private String code;
 
+    @Column(name="LEVEL")
+    private String level;
 }

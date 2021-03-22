@@ -10,6 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shiyun.R;
+import com.example.shiyun.User;
+import com.example.shiyun.User$Table;
+import com.example.shiyun.db.MyApplication;
+import com.raizlabs.android.dbflow.sql.builder.Condition;
+import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,23 +22,30 @@ import java.util.List;
 
 public class FeiHua extends AppCompatActivity {
 
+    private String user="";
+    private String level="";
+
     private EditText one;
     private EditText two;
     private EditText three;
     private EditText four;
-    int i=0;
+    private int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feihua);
 
+        MyApplication my = (MyApplication) getApplication();
+        user=my.getUser();
+        level=my.getLevel();
+
         one =findViewById(R.id.ans1);
         two =findViewById(R.id.ans2);
         three =findViewById(R.id.ans3);
         four =findViewById(R.id.ans4);
 
-        String all="风,花,柳,桥,山,秋,月,归,雪";
+        String all="风,桥,山,秋,归";
         String[] arrayStr =all.split(",");
         List<String> words= java.util.Arrays.asList(arrayStr);
         Collections.shuffle(words);
@@ -51,13 +63,26 @@ public class FeiHua extends AppCompatActivity {
                 String fourText=four.getText().toString();
                 String key=textView.getText().toString();
                 if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)&&fourText.contains(key)){
-                    if(i==9){
+                    if(i==4){
                         String content="本关卡已通关！";
+                        if(level.equals("2")) {
+                            my.setLevel("3");
+                            level = "3";
+                            User pro = new Select()
+                                    .from(User.class)
+                                    .where(Condition.column(User$Table.MAIL).is(user))
+                                    .querySingle();//区别于queryList(),返回的是实体
+                            if (pro != null) {
+                                pro.setLevel(level);
+                                pro.update();
+                            }
+                        }
                         Toast.makeText(FeiHua.this, content,Toast.LENGTH_LONG ).show();
+                        finish();
                     }
                     else {
                         i++;
-                        String content="作答正确，还有"+Integer.toString(10-i)+"题通关";
+                        String content="作答正确，还有"+Integer.toString(5-i)+"题通关";
                         Toast.makeText(FeiHua.this, content,Toast.LENGTH_LONG ).show();
                     }
                     textView.setText(words.get(i));

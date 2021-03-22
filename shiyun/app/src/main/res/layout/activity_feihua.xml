@@ -20,47 +20,47 @@
 
 
 
-        <EditText
-            android:id="@+id/ans1"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="10dp"
-            android:background="@xml/textborder"
-            android:textColor="@color/qian_bai"
-            android:textSize="25dp"
-            android:fontFamily="@font/jianshi_default"></EditText>
+    <EditText
+        android:id="@+id/ans1"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="5dp"
+        android:background="@xml/textborder"
+        android:textColor="@color/qian_bai"
+        android:textSize="25dp"
+        android:fontFamily="@font/jianshi_default"></EditText>
 
-        <EditText
-            android:id="@+id/ans2"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="350dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            android:background="@xml/textborder"
-            android:textColor="@color/qian_bai"
-            android:textSize="25dp"
-            android:fontFamily="@font/jianshi_default"></EditText>
+    <EditText
+        android:id="@+id/ans2"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
+        android:background="@xml/textborder"
+        android:textColor="@color/qian_bai"
+        android:textSize="25dp"
+        android:fontFamily="@font/jianshi_default"></EditText>
 
-        <EditText
-            android:id="@+id/ans3"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="450dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            android:background="@xml/textborder"
-            android:textColor="@color/qian_bai"
-            android:textSize="25dp"
-            android:fontFamily="@font/jianshi_default"></EditText>
+    <EditText
+        android:id="@+id/ans3"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
+        android:background="@xml/textborder"
+        android:textColor="@color/qian_bai"
+        android:textSize="25dp"
+        android:fontFamily="@font/jianshi_default"></EditText>
 
     <EditText
         android:id="@+id/ans4"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginTop="550dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_gravity="center"
         android:background="@xml/textborder"
         android:textColor="@color/qian_bai"
@@ -69,9 +69,9 @@
 
     <Button
         android:id="@+id/submit_feihua"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="670dp"
         android:layout_marginLeft="10dp"
         android:text="提交"
         android:textSize="25dp"

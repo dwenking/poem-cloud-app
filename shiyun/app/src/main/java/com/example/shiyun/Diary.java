@@ -10,25 +10,11 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 @Table(databaseName = AppDatabase.NAME, tableName = "diaryTable")
 public class Diary extends BaseModel {
 
-
-    @Column
-    @PrimaryKey(autoincrement = true)
-    int id;
-
    @Column(name="TITLE")
+   @PrimaryKey
     private String title;
    @Column(name="CONTENT")
     private String content;
-   @Column(name="USER")
-    private String user;
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 
     public String getTitle() {
         return title;

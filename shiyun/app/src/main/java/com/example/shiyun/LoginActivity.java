@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.shiyun.db.MyApplication;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     User user = new User();
                     user.setMail(emailStr);
                     user.setCode(passwordStr);
+                    user.setLevel("0");
                     user.save();
 
                     Toast.makeText(LoginActivity.this, "注册成功，请登录", Toast.LENGTH_SHORT).show();
@@ -67,15 +69,19 @@ public class LoginActivity extends AppCompatActivity {
                 String emailStr = accountEdit.getText().toString();
                 String passwordStr = passwordEdit.getText().toString();
 
-                List<User> users = new Select().
+                User user = new Select().
                         from(User.class).
                         where(Condition.column(User$Table.MAIL).is(emailStr),
                                 Condition.column(User$Table.CODE).is(passwordStr)).
-                        queryList();
+                        querySingle();
 
-                if(users!=null && !users.isEmpty()){
+                if(user!=null){
                     Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                    MyApplication my = (MyApplication) getApplication();
+                    my.setUser(user.getMail());
+                    my.setLevel(user.getLevel());
                     startActivity(intent);
+                    finish();
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "用户不存在或密码错误，请重新输入", Toast.LENGTH_SHORT).show();

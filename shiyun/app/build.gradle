@@ -33,7 +33,29 @@ dependencies {
     annotationProcessor 'com.raizlabs.android:DBFlow-Compiler:2.2.1'
     implementation "com.raizlabs.android:DBFlow-Core:2.2.1"
     implementation "com.raizlabs.android:DBFlow:2.2.1"
-    implementation  'androidx.recyclerview:recyclerview:1.0.0'
+    implementation  'androidx.' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            '' +
+            'recyclerview:recyclerview:1.0.0'
     implementation 'site.gemus:openingstartanimation:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'

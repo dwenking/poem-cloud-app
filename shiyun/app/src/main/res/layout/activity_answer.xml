@@ -9,34 +9,43 @@
     <Button
         android:id="@+id/choice1"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="234dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/choicelight"
-        android:text="   关卡一 · 飞花令"
+        android:background="@drawable/choicedark"
+        android:scaleType="center"
+        android:text="   关卡一 · 填诗句"
         android:textSize="30dp"
         android:fontFamily="@font/jianshi_default"
         ></Button>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"></TextView>
 
     <Button
         android:id="@+id/choice2"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="234dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/choicelight"
-        android:text="   关卡二 · 填诗句"
+        android:background="@drawable/choicedark"
+        android:text="   关卡二 · 悟诗意"
         android:textSize="30dp"
         android:fontFamily="@font/jianshi_default"
         ></Button>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"></TextView>
+
     <Button
         android:id="@+id/choice3"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="234dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/choicelight"
-        android:text="   关卡三 · 悟诗意"
-        android:textSize="30dp"
+        android:background="@drawable/choicedark"
+        android:layout_marginBottom="200dp"
         android:fontFamily="@font/jianshi_default"
-        ></Button>
+        android:text="   关卡三 · 飞花令"
+        android:textSize="30dp"></Button>
 
 </LinearLayout>

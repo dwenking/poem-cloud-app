@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pra.TianKong">
+    android:background="@drawable/lightback2"
+    tools:context=".pra.FeiHua">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/word_tiankong"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/fangkuang"
+        android:fontFamily="@font/jianshi_default"
+        android:gravity="center"
+        android:textSize="30dp"></TextView>
+
+    <EditText
+        android:id="@+id/ans1_tiankong"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="5dp"
+        android:background="@xml/textborder"
+        android:textColor="@color/qian_bai"
+        android:textSize="25dp"
+        android:fontFamily="@font/jianshi_default"></EditText>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="360dp"
+        android:src="@drawable/mountainblack"
+        ></ImageView>
+
+    <Button
+        android:id="@+id/submit_tiankong"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="670dp"
+        android:layout_marginLeft="10dp"
+        android:text="提交"
+        android:textSize="25dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/jianshi_default"
+        ></Button>
+
+</RelativeLayout>

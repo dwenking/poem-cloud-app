@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    state_pressed:
+    <item android:drawable="@xml/option_button_clicked" android:state_enabled="false"></item>
+
+    <item android:drawable="@xml/option_button_normal" android:state_enabled="true"></item>
+</selector>

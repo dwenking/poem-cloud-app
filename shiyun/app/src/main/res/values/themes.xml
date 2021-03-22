@@ -157,5 +157,12 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="option_button">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:fontFamily">@font/jianshi_default</item>
+        <item name="android:background">@xml/option_button_selector</item>
+    </style>
+
 
 </resources>
