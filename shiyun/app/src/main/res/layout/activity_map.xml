@@ -44,7 +44,7 @@
         android:id="@+id/yongwu"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="1dp"
         android:layout_marginBottom="100dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/jianshi_default"

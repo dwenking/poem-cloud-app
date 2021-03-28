@@ -2,15 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shiyun">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".db.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo"
-        android:supportsRtl="true"
         android:screenOrientation="portrait"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.ContentActivity"></activity>
+        <activity
+            android:name=".activity.PoemGenerateActivity"
+            android:label="@string/title_activity_poem_generate"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/textborder" />
@@ -18,20 +27,30 @@
         <activity android:name=".pra.ShiYi" />
         <activity android:name=".pra.TianKong" />
         <activity android:name=".pra.FeiHua" />
-        <activity android:name=".AnswerActivity" />
-        <activity android:name=".ListActivity" />
-        <activity android:name=".SetActivity" />
-        <activity android:name=".OpenActivity">
+        <activity android:name=".activity.AnswerActivity" />
+        <activity android:name=".activity.ListActivity" />
+        <activity android:name=".activity.SetActivity" />
+        <activity android:name=".activity.OpenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".EditActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.MapActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.EditActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.cameraalbumtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

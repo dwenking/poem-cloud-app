@@ -5,7 +5,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:paddingBottom="0dp" tools:context=".MainActivity"
+    android:paddingBottom="0dp" tools:context=".activity.MainActivity"
     >
 
     <ImageButton

@@ -43,10 +43,33 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder>{
         Diary diary=diaryList.get(position);
         holder.text.setText(diary.getTitle());
         holder.ima.setImageResource(R.drawable.book);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClick(position);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount(){
         return diaryList.size();
     }
+
+    //点击事件
+    //第一步 定义接口
+    public interface OnItemClickListener {
+        void onClick(int position);
+    }
+
+    private OnItemClickListener listener;
+
+    //第二步， 写一个公共的方法
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
 }

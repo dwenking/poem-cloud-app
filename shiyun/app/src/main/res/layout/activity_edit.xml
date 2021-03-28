@@ -7,7 +7,7 @@
                 android:id="@+id/layout_container"
                 android:background="@drawable/mapback2"
                 style="@style/NormalBgLeftRightPadding"
-                tools:context="com.example.shiyun.EditActivity">
+                tools:context="com.example.shiyun.activity.EditActivity">
 
     <EditText
         android:id="@+id/edit_title"

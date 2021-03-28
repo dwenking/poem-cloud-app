@@ -32,4 +32,5 @@
 
     <dimen name="huge_circle_size">120dp</dimen>
     <dimen name="half_circle_size">-60dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
