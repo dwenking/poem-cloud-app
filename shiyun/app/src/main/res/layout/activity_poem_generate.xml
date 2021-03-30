@@ -47,11 +47,21 @@
     <Button
         android:id="@+id/take_photo"
         android:layout_width="match_parent"
-        android:layout_below="@+id/check_connect"
+        android:layout_below="@+id/choose_from_album"
         android:layout_height="45dp"
         android:text="拍照"
         android:fontFamily="@font/jianshi_default"
         android:textSize="25dp"
         android:background="@color/transparent"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="从相册选取"
+        android:fontFamily="@font/jianshi_default"
+        android:textSize="25dp"
+        android:background="@color/transparent"
+        android:id="@+id/choose_from_album"
+        android:layout_alignParentTop="true"/>
 
 </RelativeLayout>
