@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +16,12 @@ import com.example.shiyun.Question;
 import com.example.shiyun.Question$Table;
 import com.example.shiyun.User;
 import com.example.shiyun.User$Table;
+import com.example.shiyun.activity.SoluActivity;
 import com.example.shiyun.db.MyApplication;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +45,8 @@ public class ShiYi extends AppCompatActivity{
 
     /** 题目计数 **/
     private int mCurrentCount = 0; // 当前题号
-    private static final int MAX_COUNT = 2; // 最大题数
+    private static final int MAX_COUNT = 5; // 最大题数
+    private static final int SUCCESS_SCORE = 30; // 通关分数
 
     /** 题目列表 **/
     List<Question> mQuestions = new ArrayList<>();
@@ -50,6 +54,9 @@ public class ShiYi extends AppCompatActivity{
     List<String> mAnswers = new ArrayList<>();
     /** 用户答案 **/
     List<String> mUserAnswers = new ArrayList<>();
+
+    ArrayList<String> mSoluQues;
+    ArrayList<String> mSoluAns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +73,9 @@ public class ShiYi extends AppCompatActivity{
 
         /** 获取答案 **/
         mAnswers = getQuizAnswers(mQuestions);
+
+        mSoluQues = getSoluQues(mQuestions);
+        mSoluAns = getSoluAns(mAnswers);
 
         mQuestion = (TextView) findViewById(R.id.question);
 
@@ -128,6 +138,8 @@ public class ShiYi extends AppCompatActivity{
                             Toast.LENGTH_SHORT).show();
                     mSubmitButton.setEnabled(true);
                 }
+                if (mUserAnswers.size() != mCurrentCount)
+                    updateUserAnswers("E");
             }
         });
 
@@ -136,6 +148,8 @@ public class ShiYi extends AppCompatActivity{
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mUserAnswers.size() != MAX_COUNT)
+                    updateUserAnswers("E");
                 checkAnswers();
             }
         });
@@ -215,9 +229,9 @@ public class ShiYi extends AppCompatActivity{
         }
 
         /** 闯关信息组合 **/
-        String result = "你总共答对" + score + "道题，成绩是" + score*10 + "分！";
+        String result = "你总共答对" + score + "道题，成绩是" + (score *= 10) + "分！";
         String title = null;
-        if (score >= 80) {
+        if (score >= SUCCESS_SCORE) {
             result += "\n恭喜你通关！";
             title = "闯关成功";
             if(level.equals("1")) {
@@ -257,6 +271,11 @@ public class ShiYi extends AppCompatActivity{
                                         pro.update();
                                     }
                                 }
+                                /** 启动解析界面 **/
+                                Intent intent = new Intent(ShiYi.this, SoluActivity.class);
+                                intent.putStringArrayListExtra("ansList", mSoluAns);
+                                intent.putStringArrayListExtra("quesList", mSoluQues);
+                                startActivity(intent);
                                 finish();
                             }
                         })
@@ -278,5 +297,35 @@ public class ShiYi extends AppCompatActivity{
         mOptionC.setEnabled(true);
         mOptionD.setEnabled(true);
     }
+
+    private ArrayList<String> getSoluQues(List<Question> questions) {
+        ArrayList<String> soluQues = new ArrayList<>();
+        for (Question question : questions)
+        {
+            soluQues.add(question.getQuestion());
+        }
+        return soluQues;
+    }
+
+    private ArrayList<String> getSoluAns(List<String> answers) {
+        ArrayList<String> ans = new ArrayList<>();
+        for (int i = 0; i < answers.size(); i++)
+        {
+            String temp = answers.get(i);
+            switch (temp) {
+                case "A":
+                    temp += "." + mQuestions.get(i).getOptionA();break;
+                case "B":
+                    temp += "." + mQuestions.get(i).getOptionB();break;
+                case "C":
+                    temp += "." + mQuestions.get(i).getOptionC();break;
+                case "D":
+                    temp += "." + mQuestions.get(i).getOptionD();break;
+            }
+            ans.add(temp);
+        }
+        return ans;
+    }
+
 }
 

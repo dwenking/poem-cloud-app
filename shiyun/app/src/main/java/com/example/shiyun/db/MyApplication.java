@@ -151,18 +151,55 @@ public class MyApplication extends Application {
     }
 
     private void createShiyi(){
-        Question question1 = new Question();
-        question1.setQuestionId(1);
-        question1.setQuestion("李白是哪个朝代的诗人？");
-        question1.setOptions("唐朝", "宋朝", "元朝", "明朝");
-        question1.setAnswer("A");
-        question1.save();
 
-        Question question2 = new Question();
-        question2.setQuestionId(2);
-        question2.setQuestion("杜甫是哪个朝代的诗人？");
-        question2.setOptions("唐朝", "宋朝", "元朝", "明朝");
-        question2.setAnswer("A");
-        question2.save();
+        String[] question1 = {"李白是哪个朝代的诗人？",
+                "唐朝",
+                "宋朝",
+                "元朝",
+                "明朝"};
+        createQuestion(1, question1, "A");
+
+        String[] question2 = {"杜甫是哪个朝代的诗人？",
+                "唐朝",
+                "宋朝",
+                "元朝",
+                "明朝"};
+        createQuestion(2, question2, "A");
+
+        String[] question3 = {"被称为“登临怀古双壁”的是哪两首诗",
+                "辛弃疾《永遇乐·京口北固亭怀古》 ；苏轼《念奴娇·赤壁怀古》",
+                "李白《登金陵凤凰台》；崔颢《黄鹤楼》",
+                "崔颢《黄鹤楼》；苏轼《念奴娇·赤壁怀古》",
+                "李白《登金陵凤凰台》；辛弃疾《永遇乐·京口北固亭怀古》"};
+        createQuestion(3, question3, "B");
+
+        String[] question4 = {"前人曾评价温庭筠的《过陈琳墓》说：“此诗吊陈琳，都用自己陈说，盖己" +
+                "之才与遇，有与琳相似者。”诗中哪些词句用以描写自己",
+                "曾于青史见遗文，今日飘蓬过此坟。",
+                "词客有灵应识我，霸才无主独怜君。",
+                "石麟埋没藏春草，铜雀荒凉对暮云。",
+                "莫怪临风倍惆怅，欲将书剑学从军。"};
+        createQuestion(4, question4, "D");
+
+        String[] question5 = {"对于王安石的《南乡子·自古帝王州》中最后一句“槛外长江空自流”说法不" +
+                "正确的一项是",
+                "化用了滕王阁诗的“阁中帝子今何在，槛外长江空自流",
+                "此句表达的意境与“唯见长江天际流”的意境相似。",
+                "“空”字写出了长江奔流不息，从不因任何事而改变的特点。",
+                "以景结情，抒发了人生盛衰无常而宇宙永恒的感慨。"};
+        createQuestion(5, question5, "B");
+
+    }
+
+    private void createQuestion(int qId, String[] ques, String ans) {
+
+        Question question = new Question();
+
+        question.setQuestionId(qId);
+        question.setQuestion(ques[0]);
+        question.setOptions(ques[1], ques[2], ques[3], ques[4]);
+        question.setAnswer(ans);
+
+        question.save();
     }
 }

@@ -16,6 +16,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/fangkuang"
         android:fontFamily="@font/jianshi_default"
+        android:paddingLeft="65dp"
+        android:paddingRight="65dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"

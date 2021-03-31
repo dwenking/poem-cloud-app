@@ -17,23 +17,29 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/fangkuang"
         android:fontFamily="@font/jianshi_default"
+        android:paddingRight="65dp"
+        android:paddingLeft="65dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
         android:id="@+id/solution"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:fontFamily="@font/jianshi_default"
+        android:paddingLeft="65dp"
+        android:paddingRight="65dp"
+        android:paddingTop="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         ></TextView>
+
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@color/transparent"
         android:fontFamily="@font/jianshi_default"
-        android:layout_marginTop="340dp"
         android:text="加入错题本"
         android:textSize="25dp" />
 

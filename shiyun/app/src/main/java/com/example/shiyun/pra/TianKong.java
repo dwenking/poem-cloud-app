@@ -83,6 +83,7 @@ public class TianKong extends AppCompatActivity {
                         intent.putStringArrayListExtra("ansList", solu);
                         intent.putStringArrayListExtra("quesList", ques);
                         startActivity(intent);
+                        finish();
                     }
                     else {
                         i++;
