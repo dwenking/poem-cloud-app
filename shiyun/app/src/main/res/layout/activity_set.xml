@@ -140,6 +140,16 @@
                 />
 
             <Button
+                android:id="@+id/checkbook"
+                style="@style/ClickableTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="16dp"
+                android:fontFamily="@font/jianshi_default"
+                android:text="查看错题本"/>
+
+            <Button
                 android:id="@+id/logout"
                 style="@style/ClickableTextStyle"
                 android:layout_width="wrap_content"

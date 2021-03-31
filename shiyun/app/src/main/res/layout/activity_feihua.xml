@@ -72,11 +72,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="670dp"
-        android:layout_marginLeft="10dp"
-        android:text="提交"
-        android:textSize="25dp"
         android:background="@color/transparent"
         android:fontFamily="@font/jianshi_default"
-        ></Button>
+        android:text="提交"
+        android:textSize="25dp"></Button>
 
 </RelativeLayout>

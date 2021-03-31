@@ -2,7 +2,10 @@ package com.example.shiyun.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.shiyun.R;
 import com.example.shiyun.db.MyApplication;
@@ -19,5 +22,17 @@ public class SetActivity extends AppCompatActivity {
         MyApplication my = (MyApplication) getApplication();
         user=my.getUser();
         level=my.getLevel();
+
+        //错题本
+        Button but1=findViewById(R.id.checkbook);
+
+        but1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SetActivity.this,CuotiActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

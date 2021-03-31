@@ -2,6 +2,7 @@ package com.example.shiyun.pra;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import com.example.shiyun.Blank$Table;
 import com.example.shiyun.R;
 import com.example.shiyun.User;
 import com.example.shiyun.User$Table;
+import com.example.shiyun.activity.SoluActivity;
 import com.example.shiyun.db.MyApplication;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
@@ -48,8 +50,13 @@ public class TianKong extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.word_tiankong);
         Button but=findViewById(R.id.submit_tiankong);
 
+        ArrayList<String> solu=new ArrayList<>(); //传给solution的题目list
+        ArrayList<String> ques=new ArrayList<>(); //传给solution的题目list
+
         String cont=getContentBack(mList.get(i));
         textView.setText("____________，\n"+cont);
+        solu.add(mList.get(i).getContent());
+        ques.add("________________，\n"+cont);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,21 +78,27 @@ public class TianKong extends AppCompatActivity {
                                 pro.update();
                             }
                         }
-                        Toast.makeText(TianKong.this, content,Toast.LENGTH_LONG ).show();
-                        finish();
+                        Toast.makeText(TianKong.this, content,Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(TianKong.this, SoluActivity.class);
+                        intent.putStringArrayListExtra("ansList", solu);
+                        intent.putStringArrayListExtra("quesList", ques);
+                        startActivity(intent);
                     }
                     else {
                         i++;
                         String content = "作答正确，还有" + Integer.toString(5 - i) + "题通关";
-                        Toast.makeText(TianKong.this, content, Toast.LENGTH_LONG).show();
+                        Toast.makeText(TianKong.this, content, Toast.LENGTH_SHORT).show();
                     }
                     String cont=getContentBack(mList.get(i));
                     textView.setText("________________，\n         "+cont);
+                    solu.add(mList.get(i).getContent());
+                    ques.add("________________，\n"+cont);
+
                     one.setText("");
                 }
                 else{
                     String content="回答不正确，请继续尝试";
-                    Toast.makeText(TianKong.this, content,Toast.LENGTH_LONG ).show();
+                    Toast.makeText(TianKong.this, content,Toast.LENGTH_SHORT).show();
                 }
 
             }
