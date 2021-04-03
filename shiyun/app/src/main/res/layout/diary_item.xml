@@ -16,6 +16,9 @@
         android:layout_marginLeft="10dp"
         android:fontFamily="@font/jianshi_default"
         android:textColor="@color/black"
+        android:maxEms="10"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:textSize="30dp" ></TextView>
 
 </LinearLayout>

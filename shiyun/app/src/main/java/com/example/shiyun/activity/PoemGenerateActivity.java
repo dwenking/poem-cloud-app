@@ -114,7 +114,7 @@ public class PoemGenerateActivity extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "网络不可用", Toast.LENGTH_LONG).show();
             }
         });
-        */
+         */
         chooseFromAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,40 +136,20 @@ public class PoemGenerateActivity extends AppCompatActivity {
         switch (requestCode) {
             case TAKE_PHOTO:
                 if (resultCode == RESULT_OK) {
-                    try {
-
-                        InputStream is = getContentResolver().openInputStream(imageUri);
-                        Bitmap bitmap = BitmapFactory.decodeStream(is);
-                        picture.setImageBitmap(bitmap);
-
-                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                        StrictMode.setThreadPolicy(policy);
-
-                        is = getContentResolver().openInputStream(imageUri);
-                        List<String> my_poem = Main.main(is);
-                        textView = (TextView) findViewById(R.id.poem_text);
-                        String poem_to_show = "";
-                        for (int i = 0; i < my_poem.size(); i++)
-                        {
-                            poem_to_show += my_poem.get(i);
-                            if (i == 0 || i == 2)
-                                poem_to_show += "\n";
-                        }
-                        textView.setText(poem_to_show);
-
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    showPoem(imageUri);
                 }
                 break;
             case CHOOSE_PHOTO:
                 if (resultCode == RESULT_OK) {
+                    Uri uri;
                     if (Build.VERSION.SDK_INT >= 19) {
-                        handleImageOnKitKat(data);
+                        uri = handleImageOnKitKat(data);
                     } else {
-                        handleImageBeforeKitKat(data);
+                        uri = handleImageBeforeKitKat(data);
                     }
+                    showPoem(uri);
                 }
+
                 break;
             default:
                 break;
@@ -198,7 +178,7 @@ public class PoemGenerateActivity extends AppCompatActivity {
     }
 
     @TargetApi(19)
-    private void handleImageOnKitKat(Intent data) {
+    private Uri handleImageOnKitKat(Intent data) {
         String imagePath = null;
         Uri uri = data.getData();
         if (DocumentsContract.isDocumentUri(this, uri)) {
@@ -214,13 +194,16 @@ public class PoemGenerateActivity extends AppCompatActivity {
                 imagePath = uri.getPath();
             }
             displayImage(imagePath);
+
         }
+        return uri;
     }
 
-    private void handleImageBeforeKitKat(Intent data) {
+    private Uri handleImageBeforeKitKat(Intent data) {
         Uri uri = data.getData();
         String imagePath = getImagePath(uri, null);
         displayImage(imagePath);
+        return uri;
     }
 
     private String getImagePath(Uri uri, String selection) {
@@ -245,5 +228,30 @@ public class PoemGenerateActivity extends AppCompatActivity {
         }
     }
 
+    private void showPoem(Uri uri)
+    {
+        try {
+            InputStream is = getContentResolver().openInputStream(uri);
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            picture.setImageBitmap(bitmap);
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            is = getContentResolver().openInputStream(uri);
+            List<String> my_poem = Main.main(is);
+            textView = (TextView) findViewById(R.id.poem_text);
+            String poem_to_show = "";
+            for (int i = 0; i < my_poem.size(); i++)
+            {
+                poem_to_show += my_poem.get(i);
+                if (i == 0 || i == 2)
+                    poem_to_show += "\n";
+            }
+            textView.setText(poem_to_show);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
