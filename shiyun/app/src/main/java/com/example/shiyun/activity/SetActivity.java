@@ -34,5 +34,15 @@ public class SetActivity extends AppCompatActivity {
             }
         });
 
+        Button but2=findViewById(R.id.logout);
+        but2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SetActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }
