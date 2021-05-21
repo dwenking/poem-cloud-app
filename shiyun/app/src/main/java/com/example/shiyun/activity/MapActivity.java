@@ -24,5 +24,15 @@ public class MapActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button button2 =findViewById(R.id.xiejing);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MapActivity.this,MainActivity_xiejing.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
