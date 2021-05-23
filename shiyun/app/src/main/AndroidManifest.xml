@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.shiyun">
+    package="com.example.shiyun" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/logo"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.CuotiActivity"></activity>
+        android:theme="@style/AppTheme" >
+        <activity android:name=".activity.MainActivity_xiejing" >
+        </activity>
+        <activity android:name=".activity.CuotiActivity" />
         <activity android:name=".activity.SoluActivity" />
         <activity android:name=".activity.ContentActivity" />
         <activity
@@ -35,7 +37,7 @@
         <activity android:name=".activity.AnswerActivity" />
         <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.SetActivity" />
-        <activity android:name=".activity.OpenActivity">
+        <activity android:name=".activity.OpenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,7 +53,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.cameraalbumtest.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
