@@ -1,0 +1,63 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/jianshi_default</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+
+    <!--用于UiUtils的主题转换-->
+    <style name="Theme.White" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/jianshi_default</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:background">@drawable/lightback</item>
+    </style>
+
+    <style name="Theme.Black" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/jianshi_default</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:background">@drawable/darkback</item>
+    </style>
+
+    <style name="option_button">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:fontFamily">@font/jianshi_default</item>
+        <item name="android:background">@xml/option_button_selector</item>
+    </style>
+
+    <style name="PressableBg">
+        <item name="android:clickable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="SignupTextView" parent="PressableBg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:gravity">end|right</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SignupEditText">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end|right</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

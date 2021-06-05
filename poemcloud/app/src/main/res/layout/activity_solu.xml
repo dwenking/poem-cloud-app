@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SoluActivity"
+    android:background="@drawable/lightback"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/question_solu"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginStart="-30dp"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/fangkuang"
+        android:fontFamily="@font/jianshi_default"
+        android:paddingRight="65dp"
+        android:paddingLeft="65dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/solution"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingLeft="65dp"
+        android:paddingRight="65dp"
+        android:paddingTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        ></TextView>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        android:text="@string/addbook"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/before_solu"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:background="@color/transparent"
+            android:layout_marginTop="00dp"
+            android:text="@string/before"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/next_solu"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="00dp"
+            android:background="@color/transparent"
+            android:text="@string/next"
+            android:textSize="25dp" />
+    </LinearLayout>
+</LinearLayout>

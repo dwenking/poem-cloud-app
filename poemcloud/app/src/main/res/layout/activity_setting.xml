@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SettingActivity"
+    android:background="@drawable/mapback">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/user"
+                    android:textSize="15dp"
+                    />
+
+                <TextView
+                    android:id="@+id/user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/black"
+                    android:text="，等级："
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                    <Button
+                        android:id="@+id/checkbook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/checkbook"
+                        android:background="@color/transparent" />
+
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp"
+                    android:layout_marginLeft="18dp"
+                    android:textSize="21dp"
+                    android:background="@color/transparent"
+                    android:text="@string/logout"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/application"
+                android:textSize="15dp"
+                />
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:layout_marginTop="25dp"
+                     android:layout_marginLeft="40dp"
+                     android:layout_marginBottom="16dp"
+                     android:textColor="@color/black"
+                     android:text="@string/bgm"
+                     android:textSize="20dp"
+                     />
+
+                 <Switch
+                     android:id="@+id/bgm"
+                     android:layout_marginTop="25dp"
+                     android:layout_marginRight="15dp"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
+                 </Switch>
+
+             </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/black"
+                        android:text="@string/notice"
+                        android:textSize="20dp"
+                        />
+
+                    <Switch
+                        android:id="@+id/notice"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </Switch>
+
+                </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/about"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="25dp"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                android:textSize="21dp"
+                android:background="@color/transparent"
+                android:text="@string/project"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
