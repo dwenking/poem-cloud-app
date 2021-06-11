@@ -17,8 +17,10 @@ public class ContentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         Intent intent=getIntent();
-        String data=intent.getStringExtra("content");
+        String data=intent.getStringExtra("title"+"content");
         content=findViewById(R.id.content);
         content.setText(data);
     }
+
+
 }
