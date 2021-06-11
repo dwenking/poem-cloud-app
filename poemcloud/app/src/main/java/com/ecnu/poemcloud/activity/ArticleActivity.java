@@ -52,12 +52,9 @@ public class ArticleActivity extends BaseActivity {
             @Override
             public void onClick(int position) {
                 Common_sense tmp = commonSenseList.get(position);
-//                add title
-                String title = tmp.title;
                 String content = tmp.text;
                 Intent intent = new Intent(ArticleActivity.this, ContentActivity.class);
-
-                intent.putExtra("title"+"content",title+"\n"+"\n"+content);
+                intent.putExtra("content", content);
                 startActivity(intent);
             }
         });
