@@ -8,19 +8,20 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:paddingTop="145dp"
+        android:paddingBottom="50dp">
 
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="13dp"
-            android:layout_marginTop="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
+            android:textColor="#5E4747"
+            android:letterSpacing="0.09"
+            android:textSize="17sp" />
     </ScrollView>
 
 </LinearLayout>
