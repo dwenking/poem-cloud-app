@@ -44,8 +44,9 @@
             android:id="@+id/login"
             style="@style/SignupTextView"
             android:layout_below="@+id/password"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:text="@string/login"
+            android:padding="5dp"
             android:layout_centerHorizontal="true"
             android:textColor="@color/bright_red"
             />
@@ -53,10 +54,12 @@
         <Button
             android:id="@+id/signup"
             style="@style/SignupTextView"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="0dp"
+            android:padding="5dp"
             android:layout_below="@+id/login"
             android:layout_centerHorizontal="true"
             android:text="@string/signup"
+
 
             />
 

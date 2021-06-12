@@ -1,36 +1,31 @@
 package com.ecnu.poemcloud.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import com.ecnu.poemcloud.R;
 import com.ecnu.poemcloud.activity.service.NoticeService;
 import com.ecnu.poemcloud.activity.service.PlayMusicService;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Button checkbook;
     Button logout;
-    Button project;
+    ImageButton project;
     Switch bgm;
     Switch notice;
     TextView username;

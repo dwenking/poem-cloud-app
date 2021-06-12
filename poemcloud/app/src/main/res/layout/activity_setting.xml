@@ -1,195 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.SettingActivity"
-    android:background="@drawable/mapback">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".activity.SettingActivity"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/setting_back">
 
-    <LinearLayout android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/Img2"
+        android:layout_width="70dp"
+        android:layout_height="320dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:src="@drawable/setting_studyhelper"/>
+
+    <ImageView
+        android:id="@+id/Img1"
+        android:layout_width="70dp"
+        android:layout_height="320dp"
+        android:layout_toLeftOf="@id/Img2"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="30dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@drawable/setting_bgmusic"/>
+
+    <ImageButton
+        android:id="@+id/project"
+        android:layout_width="70dp"
+        android:layout_height="320dp"
+        android:layout_toRightOf="@id/Img2"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="25dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@drawable/setting_aboutshiyun"/>
+
+    <Switch
+        android:id="@+id/bgm"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_toLeftOf="@id/Img2"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="30dp"></Switch>
 
+    <Switch
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/Img1"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="30dp"
+        >
+    </Switch>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            >
+    <TextView
+        android:id="@+id/yh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/user"
+        android:textSize="15dp"
+        />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/user"
-                    android:textSize="15dp"
-                    />
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@+id/yh"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/main_red"
+        android:text="等级："
+        android:textSize="15dp" />
 
-                <TextView
-                    android:id="@+id/user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-                <TextView
-                    android:id="@+id/level"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/black"
-                    android:text="，等级："
-                    android:textSize="15dp" />
-            </LinearLayout>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/Img2"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:textSize="18dp"
+        android:textColor="#415065"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/minibutton_blue"
+        android:text="@string/logout"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+    <Button
+        android:id="@+id/checkbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/logout"
+        android:layout_centerHorizontal="true"
+        android:background="@color/transparent"
+        android:text="@string/checkbook"
+        android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp">
-
-                    <Button
-                        android:id="@+id/checkbook"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/checkbook"
-                        android:background="@color/transparent" />
-
-                </FrameLayout>
-
-                <Button
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="16dp"
-                    android:layout_marginLeft="18dp"
-                    android:textSize="21dp"
-                    android:background="@color/transparent"
-                    android:text="@string/logout"/>
-
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/application"
-                android:textSize="15dp"
-                />
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
-
-                 <TextView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="25dp"
-                     android:layout_marginLeft="40dp"
-                     android:layout_marginBottom="16dp"
-                     android:textColor="@color/black"
-                     android:text="@string/bgm"
-                     android:textSize="20dp"
-                     />
-
-                 <Switch
-                     android:id="@+id/bgm"
-                     android:layout_marginTop="25dp"
-                     android:layout_marginRight="15dp"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content">
-                 </Switch>
-
-             </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginBottom="16dp"
-                        android:textColor="@color/black"
-                        android:text="@string/notice"
-                        android:textSize="20dp"
-                        />
-
-                    <Switch
-                        android:id="@+id/notice"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </Switch>
-
-                </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/about"
-                android:textSize="15dp" />
-
-            <Button
-                android:id="@+id/project"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="25dp"
-                android:padding="16dp"
-                android:layout_marginTop="10dp"
-                android:textSize="21dp"
-                android:background="@color/transparent"
-                android:text="@string/project"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
