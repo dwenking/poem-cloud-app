@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PoemGenActivity">
+    tools:context=".activity.PoemGenActivity"
+    android:background="@drawable/login_back">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -45,22 +46,26 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
     <Button
         android:id="@+id/take_photo"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/choose_from_album"
-        android:layout_height="45dp"
+        style="@style/SignupTextView"
+        android:layout_toRightOf="@+id/choose_from_album"
         android:text="@string/take_photo"
-        android:textSize="25dp"
-        android:background="@color/transparent"/>
+        android:textColor="@color/main_blue"
+        android:background="@drawable/minibutton_blue"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="@string/choose_from_album"
-        android:textSize="25dp"
-        android:background="@color/transparent"
         android:id="@+id/choose_from_album"
-        android:layout_alignParentTop="true"/>
+        style="@style/SignupTextView"
+        android:text="@string/choose_from_album"
+        android:padding="5dp"
 
+        android:textColor="@color/main_blue"
+        android:background="@drawable/minibutton_blue"
+        android:layout_alignParentTop="true"/>
+    </LinearLayout>
 </RelativeLayout>

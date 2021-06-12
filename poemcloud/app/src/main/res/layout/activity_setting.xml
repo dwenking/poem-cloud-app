@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 tools:context=".activity.SettingActivity"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/setting_back">
+android:background="@drawable/login_back">
 
     <ImageView
         android:id="@+id/Img2"
@@ -104,14 +104,27 @@ android:background="@drawable/setting_back">
         android:text="@string/logout"/>
 
     <Button
-        android:id="@+id/checkbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/checkrank"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
         android:layout_gravity="center_vertical"
         android:layout_below="@+id/logout"
         android:layout_centerHorizontal="true"
-        android:background="@color/transparent"
-        android:text="@string/checkbook"
-        android:textSize="20dp" />
+        android:background="@drawable/minibutton_blue"
+        android:text="查看排名"
+        android:textColor="#415065"
+        android:textSize="18dp"
+        />
+
+    <ImageView
+        android:layout_width="91dp"
+        android:layout_height="215dp"
+        android:layout_toRightOf="@+id/Img2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="30dp"
+
+
+        android:src="@drawable/setting_pig"
+         />
 
 </RelativeLayout>

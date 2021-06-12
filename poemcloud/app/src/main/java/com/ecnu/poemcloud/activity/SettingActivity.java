@@ -23,7 +23,7 @@ import java.util.TimeZone;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
-    Button checkbook;
+    Button checkrank;
     Button logout;
     ImageButton project;
     Switch bgm;
@@ -43,13 +43,13 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         username=findViewById(R.id.user);
         levelnum=findViewById(R.id.level);
 
-        checkbook=findViewById(R.id.checkbook);
+        checkrank=findViewById(R.id.checkrank);
         logout=findViewById(R.id.logout);
         project=findViewById(R.id.project);
         bgm=findViewById(R.id.bgm);
         notice=findViewById(R.id.notice);
 
-        checkbook.setOnClickListener(this);
+        checkrank.setOnClickListener(this);
         logout.setOnClickListener(this);
         project.setOnClickListener(this);
         bgm.setOnCheckedChangeListener(this);
@@ -72,9 +72,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.checkbook:
-                Intent intent1=new Intent(SettingActivity.this,CuotiActivity.class);
-                startActivity(intent1);
+            case R.id.checkrank:
+                /*Intent intent1=new Intent(SettingActivity.this,CuotiActivity.class);
+                startActivity(intent1);*/
                 break;
             case R.id.logout:
                 Intent intent2=new Intent(SettingActivity.this,LoginActivity.class);

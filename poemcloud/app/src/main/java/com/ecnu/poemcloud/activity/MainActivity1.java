@@ -46,7 +46,7 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
     public void onClick(View v){
         switch (v.getId()){
             case R.id.left:
-                Intent intent1=new Intent(MainActivity1.this,SettingActivity.class);
+                Intent intent1=new Intent(MainActivity1.this,CuotiActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.center:
@@ -115,7 +115,7 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
         return super.onKeyDown(keyCode, event);
     }
 
-    private void exit() {
+   /* private void exit() {
         if ((System.currentTimeMillis() - clickTime) > 2000) {
             Toast.makeText(MainActivity1.this, "再次点击退出",  Toast.LENGTH_SHORT).show();
             clickTime = System.currentTimeMillis();
@@ -123,6 +123,11 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
             ActivityCollector.finishAll();
             System.exit(0);
         }
+    }*/
+    private void exit(){
+
+        Intent intent=new Intent(MainActivity1.this,SettingActivity.class);
+        startActivity(intent);
     }
 
 }
