@@ -1,10 +1,8 @@
 package com.ecnu.poemcloud.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -53,12 +51,15 @@ public class ArticleActivity extends BaseActivity {
             public void onClick(int position) {
                 Common_sense tmp = commonSenseList.get(position);
 //                add title
-                String title = tmp.title;
+//                String title = tmp.title;
                 String content = tmp.text;
-                Intent intent = new Intent(ArticleActivity.this, ContentActivity.class);
 
-                intent.putExtra("title"+"content",title+"\n"+"\n"+content);
+                Intent intent = new Intent(ArticleActivity.this, ContentActivity.class);
+                intent.putExtra("content",content);
+
+//                intent.putExtra("title"+"content",title+"\n"+"\n"+content);
                 startActivity(intent);
+
             }
         });
 
