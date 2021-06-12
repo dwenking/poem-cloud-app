@@ -20,7 +20,7 @@ public class ArticleActivity extends BaseActivity {
 
     private List<Common_sense> commonSenseList = new ArrayList<>();
 
-    private int high_id = 10;
+    private int high_id = 1000;
     private int low_id = 1;
     private int id_theme;
 
