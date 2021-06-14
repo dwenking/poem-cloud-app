@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.ecnu.poemcloud.R;
+import com.ecnu.poemcloud.activity.pra.TiankongActivity;
 import com.ecnu.poemcloud.adapter.ArticleAdapter;
 import com.ecnu.poemcloud.entity.Common_sense;
 import com.ecnu.poemcloud.utils.HttpRequest;

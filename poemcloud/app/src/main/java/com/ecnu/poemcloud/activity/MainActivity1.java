@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.ecnu.poemcloud.R;
@@ -15,17 +17,18 @@ import com.ecnu.poemcloud.utils.UiUtils;
 public class MainActivity1 extends BaseActivity implements View.OnClickListener{
 
     private int id_theme=1;
+    LinearLayout mainback;
     ImageButton bottom;
     ImageButton left;
     ImageButton center;
     ImageButton right;
-    ImageButton stage;
+    ImageView stage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(theme);
-        setContentView(R.layout.activity_main);
 
         //设置按钮
         bottom = findViewById(R.id.bottom);
@@ -33,6 +36,7 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
         center = findViewById(R.id.center);
         right = findViewById(R.id.right);
         stage = findViewById(R.id.stage);
+        mainback=findViewById(R.id.mainback);
         setButton();
 
         bottom.setOnClickListener(this);
@@ -43,7 +47,15 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
     }
 
     @Override
+    public void onRestart() {
+        super.onRestart();
+        setTheme(theme);
+        setButton();
+    }
+
+    @Override
     public void onClick(View v){
+        super.onClick(v);
         switch (v.getId()){
             case R.id.left:
                 Intent intent1=new Intent(MainActivity1.this,CuotiActivity.class);
@@ -66,8 +78,11 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
                 load();
                 break;
             case R.id.stage:
+                /*
                 Intent intent4=new Intent(MainActivity1.this,PoemGenActivity.class);
                 startActivity(intent4);
+
+                 */
                 break;
         }
     }
@@ -86,11 +101,13 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
         score= HttpRequest.getScoreByEmail(user_email);
 
         if (theme != R.style.Theme_White) {
+            mainback.setBackgroundResource(R.drawable.darkback);
             bottom.setImageResource(R.drawable.darkbottom);
             left.setImageResource(R.drawable.darkleft);
             right.setImageResource(R.drawable.darkright);
             stage.setImageResource(R.drawable.darkstage11);
         } else {
+            mainback.setBackgroundResource(R.drawable.lightback);
             bottom.setImageResource(R.drawable.lightbottom);
             left.setImageResource(R.drawable.lightleft);
             right.setImageResource(R.drawable.lightright);
@@ -105,17 +122,17 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
         }
     }
 
-    private long clickTime=0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exit();
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
 
-   /* private void exit() {
+    /*
+   private long clickTime=0;
+   private void exit() {
         if ((System.currentTimeMillis() - clickTime) > 2000) {
             Toast.makeText(MainActivity1.this, "再次点击退出",  Toast.LENGTH_SHORT).show();
             clickTime = System.currentTimeMillis();
@@ -123,11 +140,6 @@ public class MainActivity1 extends BaseActivity implements View.OnClickListener{
             ActivityCollector.finishAll();
             System.exit(0);
         }
-    }*/
-    private void exit(){
-
-        Intent intent=new Intent(MainActivity1.this,SettingActivity.class);
-        startActivity(intent);
     }
-
+    */
 }

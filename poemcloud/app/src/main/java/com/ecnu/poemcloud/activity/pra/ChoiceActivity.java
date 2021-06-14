@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.ecnu.poemcloud.R;
 import com.ecnu.poemcloud.activity.BaseActivity;
 import com.ecnu.poemcloud.activity.SoluActivity;
+import com.ecnu.poemcloud.activity.TaskActivity;
 import com.ecnu.poemcloud.entity.QuestionChoice;
 import com.ecnu.poemcloud.utils.HttpRequest;
 
@@ -39,8 +41,8 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
 
     /** 题目计数 **/
     private int mCurrentCount = 0; // 当前题号
-    private static final int MAX_COUNT = 5; // 最大题数
-    private static final int SUCCESS_SCORE = 3; // 通关题数
+    private static final int MAX_COUNT = 10; // 最大题数
+    private static final int SUCCESS_SCORE = 6; // 通关题数
 
     /** 获取题目 **/
     List<QuestionChoice> choiceList = new ArrayList<>();
@@ -283,6 +285,18 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
         mOptionB.setVisibility(View.INVISIBLE);
         mOptionC.setVisibility(View.INVISIBLE);
         mOptionD.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent=new Intent(ChoiceActivity.this, TaskActivity.class);
+            intent.putExtra("id_theme",id_theme);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

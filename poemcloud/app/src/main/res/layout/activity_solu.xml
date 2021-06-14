@@ -11,10 +11,11 @@
     <TextView
         android:id="@+id/question_solu"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="300dp"
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="40dp"
+        android:textSize="15dp"
         android:background="@drawable/fangkuang"
         android:fontFamily="@font/jianshi_default"
         android:paddingRight="65dp"
@@ -25,7 +26,7 @@
     <TextView
         android:id="@+id/solution"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:paddingLeft="65dp"
         android:paddingRight="65dp"
         android:paddingTop="20dp"
@@ -47,7 +48,8 @@
 
         <Button
             android:id="@+id/before_solu"
-            android:layout_width="210dp"
+            android:layout_weight="1"
+            android:layout_width="1dp"
             android:layout_height="50dp"
             android:background="@color/transparent"
             android:layout_marginTop="00dp"
@@ -56,7 +58,8 @@
 
         <Button
             android:id="@+id/next_solu"
-            android:layout_width="210dp"
+            android:layout_width="1dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
             android:layout_marginTop="00dp"
             android:background="@color/transparent"

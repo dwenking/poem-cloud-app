@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.ecnu.poemcloud.R;
 import com.ecnu.poemcloud.activity.BaseActivity;
+import com.ecnu.poemcloud.activity.TaskActivity;
 import com.ecnu.poemcloud.utils.HttpRequest;
 
 import java.util.Collections;
@@ -57,11 +59,11 @@ public class FeihuaActivity extends BaseActivity {
         but.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String oneText=one.getText().toString();
-                String twoText=two.getText().toString();
-                String threeText=three.getText().toString();
-                String fourText=four.getText().toString();
-                String key=textView.getText().toString();
+                String oneText=one.getText().toString().trim();
+                String twoText=two.getText().toString().trim();
+                String threeText=three.getText().toString().trim();
+                String fourText=four.getText().toString().trim();
+                String key=textView.getText().toString().trim();
 
                 if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)&&fourText.contains(key)){
                     if(i==MAX_COUNT){
@@ -70,12 +72,11 @@ public class FeihuaActivity extends BaseActivity {
                         if(score==(id_theme-1)*3+2){
                             HttpRequest.addScore(id_user, 1);
                         }
-                        finish();
                     }
                     else {
                         i++;
-                        String content="作答正确，还有"+Integer.toString(MAX_COUNT-i)+"题通关";
-                        Toast.makeText(FeihuaActivity.this, content,Toast.LENGTH_SHORT ).show();
+                        //String content="作答正确，还有"+Integer.toString(MAX_COUNT-i)+"题通关";
+                        //Toast.makeText(FeihuaActivity.this, content,Toast.LENGTH_SHORT ).show();
                     }
 
                     textView.setText(words.get(i-1));
@@ -91,5 +92,17 @@ public class FeihuaActivity extends BaseActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent=new Intent(FeihuaActivity.this, TaskActivity.class);
+            intent.putExtra("id_theme",id_theme);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class PlayMusicService extends Service {
     private MediaPlayer mediaPlayer;
+    private boolean isStop=true;
 
     public static final int PLAY_MUSIC=1;
     public static final int STOP_MUSIC=0;
@@ -38,12 +39,16 @@ public class PlayMusicService extends Service {
     public int onStartCommand(Intent intent,int flags,int startId){
         switch (intent.getIntExtra("type",-1)){
             case PLAY_MUSIC:
-                mediaPlayer.start();
+                if(mediaPlayer!=null&&isStop) {
+                    mediaPlayer.start();
+                    isStop=false;
+                }
                 break;
             case STOP_MUSIC:
                 if (mediaPlayer!=null){
                     //停止之后要开始播放音乐
                     mediaPlayer.stop();
+                    isStop=true;
                     try {
                         mediaPlayer.prepare();
                     } catch (IOException e) {

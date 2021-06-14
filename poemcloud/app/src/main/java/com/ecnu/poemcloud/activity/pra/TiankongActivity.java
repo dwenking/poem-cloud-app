@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.ecnu.poemcloud.R;
 import com.ecnu.poemcloud.activity.BaseActivity;
 import com.ecnu.poemcloud.activity.SoluActivity;
+import com.ecnu.poemcloud.activity.TaskActivity;
 import com.ecnu.poemcloud.entity.QuestionBlank;
 import com.ecnu.poemcloud.utils.HttpRequest;
 
@@ -21,7 +23,7 @@ import java.util.List;
 
 public class TiankongActivity extends BaseActivity {
 
-    private static final int MAX_COUNT = 2;
+    private static final int MAX_COUNT = 5;
     private int id_theme;
 
     private List<String> soluList = new ArrayList<>(); //传给solution的题目list
@@ -125,5 +127,17 @@ public class TiankongActivity extends BaseActivity {
         text_question.setText("没有更多的题了！");
         editText_answer.setVisibility(View.INVISIBLE);
         but_submit.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent=new Intent(TiankongActivity.this, TaskActivity.class);
+            intent.putExtra("id_theme",id_theme);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

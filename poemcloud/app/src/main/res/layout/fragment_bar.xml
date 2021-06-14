@@ -38,10 +38,10 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/stage"
         android:layout_width="wrap_content"
-        android:layout_height="580dp"
+        android:layout_height="540dp"
         android:background="#00000000"
         android:scaleType="centerCrop"
         android:layout_centerInParent="true" />

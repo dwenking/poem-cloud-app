@@ -13,7 +13,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:background">@drawable/lightback</item>
     </style>
 
     <style name="Theme.Black" parent="Theme.AppCompat.Light.NoActionBar">
@@ -22,7 +21,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:background">@drawable/darkback</item>
     </style>
 
     <style name="option_button">

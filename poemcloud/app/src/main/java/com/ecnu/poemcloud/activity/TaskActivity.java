@@ -10,6 +10,7 @@ import com.ecnu.poemcloud.utils.HttpRequest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,7 +27,6 @@ public class TaskActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
-        //Log.d("TaskActivity",String.valueOf(score));
 
         if(theme==R.style.Theme_White){
             this.getWindow().setBackgroundDrawableResource(R.drawable.lightback);
@@ -41,6 +41,7 @@ public class TaskActivity extends BaseActivity implements View.OnClickListener {
         task1=findViewById(R.id.task1);
         task2=findViewById(R.id.task2);
         task3=findViewById(R.id.task3);
+        setTask();
 
         task1.setOnClickListener(this);
         task2.setOnClickListener(this);
@@ -74,6 +75,10 @@ public class TaskActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
+        setTask();
+    }
+
+    private void setTask(){
         score = HttpRequest.getScoreByEmail(user_email);
 
         if(score<=(id_theme-1)*3){

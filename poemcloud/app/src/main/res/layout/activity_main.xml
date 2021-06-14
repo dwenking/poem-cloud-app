@@ -1,16 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/buttonbar"
-        android:name="com.ecnu.poemcloud.activity.fragment.BarFragment"
+    <LinearLayout
+        android:id="@+id/mainback"
         android:layout_width="match_parent"
-        android:layout_weight="1"
         android:layout_height="match_parent">
-    </fragment>
 
-</LinearLayout>
+        <fragment
+            android:id="@+id/buttonbar"
+            android:name="com.ecnu.poemcloud.activity.fragment.BarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></fragment>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/settingback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_back"
+        android:layout_gravity="start">
+
+        <ImageView
+            android:id="@+id/Img2"
+            android:layout_width="70dp"
+            android:layout_height="320dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/setting_studyhelper"/>
+
+        <ImageView
+            android:id="@+id/Img1"
+            android:layout_width="70dp"
+            android:layout_height="320dp"
+            android:layout_toLeftOf="@id/Img2"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="30dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/setting_bgmusic"/>
+
+        <ImageButton
+            android:id="@+id/project"
+            android:layout_width="70dp"
+            android:layout_height="320dp"
+            android:layout_toRightOf="@id/Img2"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="25dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/setting_aboutshiyun"/>
+
+        <Switch
+            android:id="@+id/bgm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/Img2"
+            android:layout_marginTop="450dp"
+            android:layout_marginRight="30dp"></Switch>
+
+        <Switch
+            android:id="@+id/notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/Img1"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="30dp"
+            >
+        </Switch>
+
+        <TextView
+            android:id="@+id/yh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/user"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/yh"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/main_red"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/Img2"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:textColor="#415065"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/minibutton_blue"
+            android:text="@string/logout"/>
+
+        <Button
+            android:id="@+id/checkrank"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/logout"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/minibutton_blue"
+            android:text="查看排名"
+            android:textColor="#415065"
+            android:textSize="18dp"
+            />
+
+        <ImageView
+            android:layout_width="91dp"
+            android:layout_height="215dp"
+            android:layout_toRightOf="@+id/Img2"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+
+
+            android:src="@drawable/setting_pig"
+            />
+    </RelativeLayout>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

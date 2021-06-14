@@ -21,6 +21,8 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+
+/* 由于改为滑动菜单，此activity和相应的layout已弃用*/
 public class SettingActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Button checkrank;

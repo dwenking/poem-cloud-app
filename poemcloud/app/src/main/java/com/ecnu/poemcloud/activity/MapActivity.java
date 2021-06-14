@@ -41,22 +41,27 @@ public class MapActivity extends BaseActivity implements View.OnClickListener{
             case R.id.map1:
                 Intent intent1=new Intent(MapActivity.this, MainActivity1.class);
                 startActivity(intent1);
+                finish();
                 break;
             case R.id.map2:
                 Intent intent2=new Intent(MapActivity.this,MainActivity2.class);
                 startActivity(intent2);
+                finish();
                 break;
             case R.id.map3:
                 Intent intent3=new Intent(MapActivity.this, MainActivity3.class);
                 startActivity(intent3);
+                finish();
                 break;
             case R.id.map4:
                 Intent intent4=new Intent(MapActivity.this,MainActivity4.class);
                 startActivity(intent4);
+                finish();
                 break;
             case R.id.map5:
                 Intent intent5=new Intent(MapActivity.this,MainActivity5.class);
                 startActivity(intent5);
+                finish();
                 break;
         }
     }

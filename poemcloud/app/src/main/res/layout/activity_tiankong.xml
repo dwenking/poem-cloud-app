@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/lightback">
 
-
-    <TextView
-        android:id="@+id/word_tiankong"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginLeft="-30dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/fangkuang"
-        android:gravity="center"
-        android:textSize="30dp"></TextView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/word_tiankong"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-20dp"
+            android:background="@drawable/fangkuang"
+            android:layout_gravity="center"
+            android:textSize="30dp"></TextView>
 
-    <EditText
-        android:id="@+id/ans1_tiankong"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="290dp"
-        android:background="@xml/textborder"
-        android:inputType="text"
-        android:textColor="@color/qian_bai"
-        android:textSize="25dp"></EditText>
+        <EditText
+            android:id="@+id/ans1_tiankong"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@xml/textborder"
+            android:inputType="text"
+            android:textColor="@color/qian_bai"
+            android:textSize="25dp"></EditText>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="360dp"
-        android:src="@drawable/mountainblack"
-        ></ImageView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mountainblack"></ImageView>
 
-    <Button
-        android:id="@+id/submit_tiankong"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="670dp"
-        android:layout_marginLeft="10dp"
-        android:text="@string/submit"
-        android:textSize="25dp"
-        android:background="@color/transparent"
-        ></Button>
+        <Button
+            android:id="@+id/submit_tiankong"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/transparent"
+            android:text="@string/submit"
+            android:layout_gravity="center"
+            android:textSize="25dp"></Button>
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

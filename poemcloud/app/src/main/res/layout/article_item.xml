@@ -13,6 +13,8 @@
     card_view:cardCornerRadius="15dp"
     card_view:cardBackgroundColor="#80FFFFFF"
     card_view:cardUseCompatPadding="true"
+    card_view:cardElevation="0dp"
+    card_view:cardMaxElevation="0dp"
     android:foreground="?android:attr/selectableItemBackground"
     >
 
