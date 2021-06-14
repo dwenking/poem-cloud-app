@@ -40,6 +40,7 @@ public class RankActivity extends AppCompatActivity {
         listView=(ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
 
+
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
             @Override

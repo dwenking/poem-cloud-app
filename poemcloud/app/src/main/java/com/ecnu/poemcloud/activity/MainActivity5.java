@@ -111,19 +111,19 @@ public class MainActivity5 extends BaseActivity implements View.OnClickListener{
             bottom.setImageResource(R.drawable.darkbottom);
             left.setImageResource(R.drawable.darkleft);
             right.setImageResource(R.drawable.darkright);
-            stage.setImageResource(R.drawable.darkstage11);
+            stage.setImageResource(R.drawable.darkstage51);
         } else {
             mainback.setBackgroundResource(R.drawable.lightback);
             bottom.setImageResource(R.drawable.lightbottom);
             left.setImageResource(R.drawable.lightleft);
             right.setImageResource(R.drawable.lightright);
-            stage.setImageResource(R.drawable.lightstage33);
+            stage.setImageResource(R.drawable.lightstage53);
 
             if(score<=6){
-                stage.setImageResource(R.drawable.lightstage31);
+                stage.setImageResource(R.drawable.lightstage51);
             }
             if(score==8) {
-                stage.setImageResource(R.drawable.lightstage32);
+                stage.setImageResource(R.drawable.lightstage52);
             }
         }
     }
