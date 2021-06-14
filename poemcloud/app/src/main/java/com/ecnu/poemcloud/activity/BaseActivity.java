@@ -109,8 +109,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.checkrank:
-                /*Intent intent1=new Intent(SettingActivity.this,CuotiActivity.class);
-                startActivity(intent1);*/
+                Intent intent1=new Intent(this, RankActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.logout:
                 Intent intent2=new Intent(this,LoginActivity.class);

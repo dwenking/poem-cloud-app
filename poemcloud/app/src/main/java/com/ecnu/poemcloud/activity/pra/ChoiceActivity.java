@@ -41,8 +41,8 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
 
     /** 题目计数 **/
     private int mCurrentCount = 0; // 当前题号
-    private static final int MAX_COUNT = 10; // 最大题数
-    private static final int SUCCESS_SCORE = 6; // 通关题数
+    private static final int MAX_COUNT = 5; // 最大题数
+    private static final int SUCCESS_SCORE = 3; // 通关题数
 
     /** 获取题目 **/
     List<QuestionChoice> choiceList = new ArrayList<>();

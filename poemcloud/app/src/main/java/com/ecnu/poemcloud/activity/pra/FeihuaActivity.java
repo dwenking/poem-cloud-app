@@ -28,7 +28,7 @@ public class FeihuaActivity extends BaseActivity {
     private EditText four;
 
     private int i = 1;
-    private static final int MAX_COUNT = 2;
+    private static final int MAX_COUNT = 1;
 
     List<String> words;
     String all="风,桥,山,秋,归,月,花,酒,柳,愁,夜,雪,梦,云,天,寒";
@@ -65,7 +65,8 @@ public class FeihuaActivity extends BaseActivity {
                 String fourText=four.getText().toString().trim();
                 String key=textView.getText().toString().trim();
 
-                if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)&&fourText.contains(key)){
+                if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)&&fourText.contains(key)
+                        &&oneText.length()>3&&twoText.length()>3&&threeText.length()>3&&fourText.length()>3){
                     if(i==MAX_COUNT){
                         String content="本关卡已通关！";
                         Toast.makeText(FeihuaActivity.this, content,Toast.LENGTH_SHORT ).show();
