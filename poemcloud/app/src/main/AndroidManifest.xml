@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ContentActivity"></activity>
+        <activity android:name=".activity.RankActivity"></activity>
+        <activity android:name=".activity.ContentActivity" />
         <activity android:name=".activity.CuotiActivity" />
         <activity android:name=".activity.ArticleActivity" />
         <activity android:name=".activity.LoginActivity" />
@@ -55,6 +56,7 @@
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.MapActivity" />
         <activity android:name=".activity.MainActivity1" />
+
 
         <provider
             android:name="androidx.core.content.FileProvider"

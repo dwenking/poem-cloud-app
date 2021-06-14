@@ -1,2 +1,4 @@
+include ':circlerefresh'
 include ':app'
+project(':circlerefresh').projectDir = new File(rootDir, 'app/libs/circlerefresh/')
 rootProject.name = "poemcloud"
