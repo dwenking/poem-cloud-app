@@ -55,15 +55,6 @@ public class PoemGenActivity extends BaseActivity implements View.OnClickListene
         takePhoto = (Button) findViewById(R.id.take_photo);
         chooseFromAlbum = (Button) findViewById(R.id.choose_from_album);
 
-        if(theme==R.style.Theme_White){
-            this.getWindow().setBackgroundDrawableResource(R.drawable.lightback);
-        }
-        else{
-            this.getWindow().setBackgroundDrawableResource(R.drawable.darkback);
-            takePhoto.setTextColor(getResources().getColor(R.color.white));
-            chooseFromAlbum.setTextColor(getResources().getColor(R.color.white));
-        }
-
         takePhoto.setOnClickListener(this);
         chooseFromAlbum.setOnClickListener(this);
     }

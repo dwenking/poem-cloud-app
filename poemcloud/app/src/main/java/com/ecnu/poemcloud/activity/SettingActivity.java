@@ -75,8 +75,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.checkrank:
-                /*Intent intent1=new Intent(SettingActivity.this,CuotiActivity.class);
-                startActivity(intent1);*/
+                Intent intent1=new Intent(SettingActivity.this, RankActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.logout:
                 Intent intent2=new Intent(SettingActivity.this,LoginActivity.class);
