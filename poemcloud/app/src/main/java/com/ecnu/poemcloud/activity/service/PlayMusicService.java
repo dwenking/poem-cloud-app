@@ -57,6 +57,6 @@ public class PlayMusicService extends Service {
                 }
                 break;
         }
-        return START_NOT_STICKY;
+        return START_STICKY;
     }
 }

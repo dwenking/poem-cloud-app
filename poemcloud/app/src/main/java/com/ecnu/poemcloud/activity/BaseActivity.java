@@ -3,8 +3,10 @@ package com.ecnu.poemcloud.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -27,6 +29,7 @@ import com.ecnu.poemcloud.utils.HttpRequest;
 import com.ecnu.poemcloud.utils.UiUtils;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
@@ -87,8 +90,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         bgm_pref=pref.getString("bgm","off");
         notice_pref=pref.getString("notice","off");
 
-        if(bgm_pref.equals("on"))bgm.setChecked(true);
-        if(notice_pref.equals("on"))notice.setChecked(true);
+        if(bgm_pref.equals("on")){
+            bgm.setChecked(true);
+        }else if(bgm_pref.equals("off")){
+            bgm.setChecked(false);
+        }
+        if(notice_pref.equals("on")){
+            notice.setChecked(true);
+        }else if(notice_pref.equals("off")){
+            notice.setChecked(false);
+        }
 
         ActivityCollector.addActivity(this);
     }
@@ -97,6 +108,20 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         score= HttpRequest.getScoreByEmail(user_email);
         levelnum.setText("等级   "+String.valueOf(score));
+
+        bgm_pref=pref.getString("bgm","off");
+        notice_pref=pref.getString("notice","off");
+
+        if(bgm_pref.equals("on")){
+            bgm.setChecked(true);
+        }else if(bgm_pref.equals("off")){
+            bgm.setChecked(false);
+        }
+        if(notice_pref.equals("on")){
+            notice.setChecked(true);
+        }else if(notice_pref.equals("off")){
+            notice.setChecked(false);
+        }
     }
 
     @Override
@@ -163,41 +188,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     private void studyNotice(int type){
         Intent intent = new Intent(this, NoticeService.class);
-        PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, 0);
-        if(type==NoticeService.UNSHOW){
-            stopService(intent);
-        }
-        else{
-            long intervalMillis = 1000*60*24*60;
-
-            long firstTime = SystemClock.elapsedRealtime();    // 开机之后到现在的运行时间(包括睡眠时间)
-            long systemTime = System.currentTimeMillis();
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            // 这里时区需要设置一下，不然会有8个小时的时间差
-            calendar.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-            calendar.set(Calendar.MINUTE, 30);
-            calendar.set(Calendar.HOUR_OF_DAY, 10);
-            calendar.set(Calendar.SECOND, 0);
-            calendar.set(Calendar.MILLISECOND, 0);
-            // 选择的定时时间
-            long selectTime = calendar.getTimeInMillis();
-            // 如果当前时间大于设置的时间，那么就从第二天的设定时间开始
-            if(systemTime > selectTime) {
-                //Toast.makeText(SettingActivity.this,"设置的时间小于当前时间", Toast.LENGTH_SHORT).show();
-                calendar.add(Calendar.DAY_OF_MONTH, 1);
-                selectTime = calendar.getTimeInMillis();
-            }
-            // 计算现在时间到设定时间的时间差
-            long time = selectTime - systemTime;
-            firstTime += time;
-            // 进行闹铃注册
-            AlarmManager manager = (AlarmManager)getSystemService(ALARM_SERVICE);
-            manager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                    firstTime, intervalMillis, pendingIntent);
-
-        }
+        intent.putExtra("type",type);
+        startService(intent);
     }
 
 }
