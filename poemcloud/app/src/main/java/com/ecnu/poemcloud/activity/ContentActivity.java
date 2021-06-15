@@ -34,8 +34,8 @@ public class ContentActivity extends BaseActivity {
         ScrollView Scroll = (ScrollView)findViewById(R.id.scrollView);
 
 
-        Button Btn1 = (Button)findViewById(R.id.Button01);//获取按钮资源
-        Btn1.setOnClickListener(new Button.OnClickListener(){//创建监听
+        FloatingActionButton Btn1 = (FloatingActionButton)findViewById(R.id.Button01);//获取按钮资源
+        Btn1.setOnClickListener(new FloatingActionButton.OnClickListener(){//创建监听
             @Override
             public void onClick(View content) {
                 Scroll.smoothScrollTo(0,0);
