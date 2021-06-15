@@ -45,8 +45,9 @@ public class RankActivity extends AppCompatActivity {
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
+                refreshlayout.finishRefresh(2000/*,false*/);
                 init();
-                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+                //传入false表示刷新失败
             }
         });
 
@@ -54,6 +55,7 @@ public class RankActivity extends AppCompatActivity {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
+                init();
             }
         });
     }

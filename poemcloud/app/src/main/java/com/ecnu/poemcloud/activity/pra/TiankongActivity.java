@@ -23,7 +23,7 @@ import java.util.List;
 
 public class TiankongActivity extends BaseActivity {
 
-    private static final int MAX_COUNT = 2;
+    private static final int MAX_COUNT = 5;
     private int id_theme;
 
     private List<String> soluList = new ArrayList<>(); //传给solution的题目list

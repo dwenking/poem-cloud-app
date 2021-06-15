@@ -28,7 +28,7 @@ public class FeihuaActivity extends BaseActivity {
     private EditText four;
 
     private int i = 1;
-    private static final int MAX_COUNT = 1;
+    private static final int MAX_COUNT = 3;
 
     List<String> words;
     String all="风,桥,山,秋,归,月,花,酒,柳,愁,夜,雪,梦,云,天,寒";
