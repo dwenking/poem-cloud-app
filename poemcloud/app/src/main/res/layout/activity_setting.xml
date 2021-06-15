@@ -103,8 +103,19 @@ android:background="@drawable/login_back">
         android:background="@drawable/minibutton_blue"
         android:text="@string/logout"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/checkrank"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:src="@drawable/rankbutton2"
+        android:layout_toRightOf="@+id/level"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="#00000000"/>
+
+    <Button
+
         android:layout_width="140dp"
         android:layout_height="70dp"
         android:layout_gravity="center_vertical"

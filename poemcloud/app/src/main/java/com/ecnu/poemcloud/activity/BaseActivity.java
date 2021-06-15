@@ -34,8 +34,9 @@ import java.util.TimeZone;
 
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
 
-    Button checkrank;
+    ImageButton checkrank;
     Button logout;
+    Button takePhoto;
     ImageButton project;
     Switch bgm;
     Switch notice;
@@ -74,9 +75,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         project=findViewById(R.id.project);
         bgm=findViewById(R.id.bgm);
         notice=findViewById(R.id.notice);
+        takePhoto=findViewById(R.id.take_photo);
 
         checkrank.setOnClickListener(this);
         logout.setOnClickListener(this);
+        takePhoto.setOnClickListener(this);
         project.setOnClickListener(this);
         bgm.setOnCheckedChangeListener(this);
         notice.setOnCheckedChangeListener(this);
@@ -147,6 +150,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 Uri uri = Uri.parse("https://github.com/dwenking/PoetCloud");
                 intent3.setData(uri);
                 startActivity(intent3);
+                break;
+            case R.id.take_photo:
+                Intent intent4=new Intent(this,PoemGenActivity.class);
+                startActivity(intent4);
                 break;
         }
     }

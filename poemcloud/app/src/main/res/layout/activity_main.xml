@@ -122,17 +122,27 @@
             android:text="@string/logout"/>
 
         <Button
-            android:id="@+id/checkrank"
+            android:id="@+id/take_photo"
             android:layout_width="140dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical"
             android:layout_below="@+id/logout"
             android:layout_centerHorizontal="true"
             android:background="@drawable/minibutton_blue"
-            android:text="查看排名"
+            android:text="识图成诗"
             android:textColor="#415065"
             android:textSize="18dp"
             />
+        <ImageButton
+            android:id="@+id/checkrank"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:src="@drawable/rankbutton2"
+            android:layout_toRightOf="@+id/level"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:background="#00000000"/>
 
         <ImageView
             android:layout_width="91dp"
