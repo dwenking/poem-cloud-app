@@ -25,10 +25,10 @@
             android:textSize="17sp" />
     </ScrollView>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Button01"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -37,7 +37,7 @@
         android:layout_marginBottom="10dp"
         android:src="@drawable/content_view"
         app:backgroundTint="#5E4747"
-        app:fabSize="mini" />
+        app:fabSize="normal" />
 
 
 
