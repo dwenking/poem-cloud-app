@@ -6,6 +6,7 @@ import com.ecnu.poemcloud.entity.Question;
 import com.ecnu.poemcloud.entity.QuestionBasis;
 import com.ecnu.poemcloud.entity.QuestionBlank;
 import com.ecnu.poemcloud.entity.QuestionChoice;
+import com.ecnu.poemcloud.entity.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -232,6 +233,19 @@ public class HttpRequest {
         String response = listener.getResponse();
 
         return gson.fromJson(response, new TypeToken<List<Common_sense>>(){}.getType());
+    }
+
+    public static List<User> getUserListOrderly(String order) {
+        Map<String, String> param = new HashMap<>();
+        param.put("order", order);
+
+        String address = HttpUtils.appendUrl("/getUserListOrderly", param);
+        HttpCallbackListener listener = new HttpCallbackListener();
+
+        HttpUtils.sendHttpRequest(address, listener, "GET");
+        String response = listener.getResponse();
+
+        return gson.fromJson(response, new TypeToken<List<User>>(){}.getType());
     }
 
 
