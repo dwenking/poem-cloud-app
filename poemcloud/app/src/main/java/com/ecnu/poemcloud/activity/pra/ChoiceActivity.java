@@ -55,6 +55,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
     String my_answer;
 
     private int count;
+    private int null_flag = 0;
 
 
     @Override
@@ -132,6 +133,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                 updateUserAnswers(my_answer);
                 if (updateQuestion() == -1) {
                     null_question_handler();
+                    null_flag = 1;
                     mSubmitButton.setVisibility(View.VISIBLE);
                     mSubmitButton.setEnabled(true);
                     return ;
@@ -150,9 +152,8 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                 break;
 
             case R.id.submitButton:
-                if (userAnswerList.size() != MAX_COUNT)
-                    updateUserAnswers("E");
-                updateUserAnswers(my_answer);
+                if (null_flag == 0)
+                    updateUserAnswers(my_answer);
                 checkAnswers();
                 break;
 
