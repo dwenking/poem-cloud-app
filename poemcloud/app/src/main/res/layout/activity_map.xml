@@ -5,86 +5,83 @@
     android:id="@+id/map_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@xml/map_layer">
+    android:background="@drawable/map3">
 
     <Button
         android:id="@+id/map1"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        style="@style/map_button"
+        android:layout_width="55dp"
+        android:layout_height="134dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
+        android:layout_marginRight="22dp"
+
         android:layout_marginBottom="150dp"
-        android:background="@android:color/transparent"
-        android:text="@string/map1"
-        android:textColor="#19160F"
-        android:textSize="24sp"
+        android:text="怀\n古\n咏\n史"
         app:layout_constraintBottom_toTopOf="@+id/map3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
+
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toEndOf="@+id/map2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556"></Button>
+        app:layout_constraintVertical_bias="0.687"></Button>
 
     <Button
         android:id="@+id/map2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="240dp"
-        android:background="@android:color/transparent"
-        android:text="@string/map2"
-        android:textColor="#19160F"
-        android:textSize="24sp"
+        style="@style/map_button"
+        android:layout_width="59dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="132dp"
+        android:text="写\n景\n抒\n情"
+        android:textColor="#c49d8e"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
     <Button
         android:id="@+id/map3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        style="@style/map_button"
+        android:layout_width="57dp"
+        android:layout_height="134dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:layout_marginBottom="128dp"
-        android:background="@android:color/transparent"
-        android:text="@string/map3"
-        android:textColor="#19160F"
-        android:textSize="24sp"
+        android:text="咏\n物\n言\n志"
         app:layout_constraintBottom_toTopOf="@+id/map5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"></Button>
+        app:layout_constraintVertical_bias="1.0"></Button>
 
     <Button
         android:id="@+id/map4"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+
+        style="@style/map_button"
+        android:layout_width="61dp"
+        android:layout_height="137dp"
+
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
         android:layout_marginBottom="200dp"
-        android:background="@android:color/transparent"
-        android:text="@string/map4"
-        android:textColor="#19160F"
-        android:textSize="24sp"
+        android:text="边\n塞\n征\n战"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/map3"
-        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/map2"
-        app:layout_constraintVertical_bias="0.545"></Button>
+        app:layout_constraintVertical_bias="0.6"></Button>
 
     <Button
         android:id="@+id/map5"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
-        android:layout_marginBottom="164dp"
-        android:background="@android:color/transparent"
-        android:text="@string/map5"
-        android:textColor="#19160F"
-        android:textSize="24sp"
+        style="@style/map_button"
+        android:layout_width="55dp"
+        android:layout_height="132dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+
+        android:layout_marginBottom="76dp"
+        android:text="即\n事\n感\n怀"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"></Button>
 

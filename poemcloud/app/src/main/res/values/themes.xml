@@ -23,6 +23,13 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="map_button">
+
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/map_button</item>
+    </style>
+
     <style name="option_button">
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_width">350dp</item>
