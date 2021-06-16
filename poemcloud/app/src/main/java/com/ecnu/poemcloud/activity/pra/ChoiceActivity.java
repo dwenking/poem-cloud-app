@@ -52,10 +52,17 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
 
     QuestionChoice now_question = null;
 
+    String my_answer;
+
+    private int count;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
+
+        count= 1;
 
         Intent intent=getIntent();
         id_theme=intent.getIntExtra("id_theme",1);
@@ -100,24 +107,29 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
             case R.id.optionA:
                 EnableOptions();
                 mOptionA.setEnabled(false);
-                updateUserAnswers("A");
+                my_answer = "A";
                 break;
+
             case R.id.optionB:
                 EnableOptions();
                 mOptionB.setEnabled(false);
-                updateUserAnswers("B");
+                my_answer = "B";
                 break;
+
             case R.id.optionC:
                 EnableOptions();
                 mOptionC.setEnabled(false);
-                updateUserAnswers("C");
+                my_answer = "C";
                 break;
+
             case R.id.optionD:
                 EnableOptions();
                 mOptionD.setEnabled(false);
-                updateUserAnswers("D");
+                my_answer = "D";
                 break;
+
             case R.id.nextButton:
+                updateUserAnswers(my_answer);
                 if (updateQuestion() == -1) {
                     null_question_handler();
                     mSubmitButton.setVisibility(View.VISIBLE);
@@ -136,9 +148,11 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                 if (userAnswerList.size() != mCurrentCount)
                     updateUserAnswers("E");
                 break;
+
             case R.id.submitButton:
                 if (userAnswerList.size() != MAX_COUNT)
                     updateUserAnswers("E");
+                updateUserAnswers(my_answer);
                 checkAnswers();
                 break;
 
@@ -153,31 +167,44 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
             if (now_question == null)
                 return -1;
 
-            choiceList.add(now_question);
+            if (choiceList.isEmpty() || choiceList.get(choiceList.size()- 1).id_question != now_question.id_question)
+                choiceList.add(now_question);
 
-            mQuestion.setText(now_question.text);
+
+
+            String content = "第" + count + "题 : \n" + now_question.text;
+            mQuestion.setText(content);
             mOptionA.setText(now_question.option_a);
             mOptionB.setText(now_question.option_b);
             mOptionC.setText(now_question.option_c);
             mOptionD.setText(now_question.option_d);
 
-            idList.add(String.valueOf(now_question.id_question));
+//            if (!idList.isEmpty() && !idList.get(idList.size()- 1).equals(String.valueOf(now_question.id_question)))
+//                idList.add(String.valueOf(now_question.id_question));
+            count++;
             return 1;
         }
         return -1;
     }
 
     /** 更新用户答案 **/
-    public void updateUserAnswers(String answer) {
-        if (userAnswerList.size() - 1 < mCurrentCount) {
+    public int updateUserAnswers(String answer) {
+//        if (userAnswerList.size() - 1 < mCurrentCount) {
             userAnswerList.add(answer);
 
             int tmp = HttpRequest.doQuestion(id_user, now_question.id_question, answer);
-            scoreList.add(tmp);
+            if (tmp == 0) {
+                Toast.makeText(this, "wrong answer!", Toast.LENGTH_SHORT).show();
+                return -1;
+            }
+            else
+                scoreList.add(tmp);
 
-        } else {
-            userAnswerList.set(mCurrentCount, answer);
-        }
+//        } else {
+//            userAnswerList.set(mCurrentCount, answer);
+//        }
+
+        return 0;
     }
 
     /** 检查用户提交的答案 **/
@@ -220,7 +247,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                                 Intent intent = new Intent(ChoiceActivity.this, SoluActivity.class);
                                 intent.putStringArrayListExtra("ansList", getSoluAns());
                                 intent.putStringArrayListExtra("quesList", getSoluQues());
-                                intent.putStringArrayListExtra("idList", (ArrayList<String>) idList);
+                                intent.putStringArrayListExtra("idList", getIdQues());
                                 startActivity(intent);
                                 finish();
                             }
@@ -240,27 +267,31 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
     private ArrayList<String> getSoluQues() {
         ArrayList<String> soluQues = new ArrayList<>();
         String text;
-        for (QuestionChoice questionChoice : choiceList)
+        for (int i = 0; i < choiceList.size(); i++)
         {
-            /*
-            text = questionChoice.text + "\n" +
-                    questionChoice.option_a + "\n" +
-                    questionChoice.option_b + "\n" +
-                    questionChoice.option_c + "\n" +
-                    questionChoice.option_d;
-
-             */
-            text=questionChoice.text;
+            text = choiceList.get(i).text;
             soluQues.add(text);
         }
         return soluQues;
     }
 
+    private ArrayList<String> getIdQues() {
+        ArrayList<String> IdQues = new ArrayList<>();
+        for (int i = 0; i < choiceList.size(); i++)
+        {
+            IdQues.add(String.valueOf(choiceList.get(i).id_question));
+
+        }
+        return IdQues;
+    }
+
     private ArrayList<String> getSoluAns() {
         ArrayList<String> ans = new ArrayList<>();
 
-        for (QuestionChoice questionChoice : choiceList)
+
+        for (int i = 0; i < choiceList.size(); i++)
         {
+            QuestionChoice questionChoice = choiceList.get(i);
             String temp = questionChoice.answer;
             switch (temp) {
                 case "A":
