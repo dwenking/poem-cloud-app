@@ -11,6 +11,7 @@ import java.util.Map;
 public class HttpUtils {
 
     private static String url = "http://8.140.25.113:8889";
+    //private static String url = "http://172.20.10.3:8889";
 
     public static String appendUrl(String address, Map<String, String> data) {
         String newUrl = url + address;

@@ -119,7 +119,7 @@ public class MainActivity4 extends BaseActivity implements View.OnClickListener{
             right.setImageResource(R.drawable.lightright);
             stage.setImageResource(R.drawable.lightstage43);
 
-            if(score<=9){
+            if(score<=10){
                 stage.setImageResource(R.drawable.lightstage41);
             }
             if(score==11) {

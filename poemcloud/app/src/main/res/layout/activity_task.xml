@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.TaskActivity"
     android:layout_width="match_parent"
+    android:background="@drawable/lightback"
     android:layout_height="match_parent"
     android:orientation="vertical">
 

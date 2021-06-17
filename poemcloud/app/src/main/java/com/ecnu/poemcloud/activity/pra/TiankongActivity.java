@@ -16,6 +16,7 @@ import com.ecnu.poemcloud.activity.BaseActivity;
 import com.ecnu.poemcloud.activity.SoluActivity;
 import com.ecnu.poemcloud.activity.TaskActivity;
 import com.ecnu.poemcloud.entity.QuestionBlank;
+import com.ecnu.poemcloud.entity.QuestionChoice;
 import com.ecnu.poemcloud.utils.HttpRequest;
 
 import java.util.ArrayList;
@@ -30,12 +31,13 @@ public class TiankongActivity extends BaseActivity {
     private List<String> textList = new ArrayList<>();
     private List<String> idList = new ArrayList<>();
     private QuestionBlank now_question;
+    private List<Integer> ques_list=new ArrayList<>();
 
     private EditText editText_answer;
     private TextView text_question;
     private Button but_submit;
 
-    private int i = 1;
+    private int count = 1;
     private boolean null_flag = false;
 
 
@@ -52,9 +54,14 @@ public class TiankongActivity extends BaseActivity {
         text_question = findViewById(R.id.word_tiankong);
         but_submit = findViewById(R.id.submit_tiankong);
 
-        if (updateQuestion(text_question) == -1) {
+        // 初始化ques_list
+        ques_list = HttpRequest.getIdQuestionList(id_theme, 0, MAX_COUNT);
+
+        if (updateQuestion() == -1) {
             null_question_handler();
         }
+
+
 
         but_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +79,7 @@ public class TiankongActivity extends BaseActivity {
                 String user_answer = editText_answer.getText().toString();
 
                 if(HttpRequest.doQuestion(id_user, now_question.id_question, user_answer) == 1) {
-                    if(i == MAX_COUNT ){
+                    if(count == MAX_COUNT ){
                         if(score==(id_theme-1)*3){
                             HttpRequest.addScore(id_user, 1);
                         }
@@ -85,12 +92,11 @@ public class TiankongActivity extends BaseActivity {
 
                         String content = "本关卡已通关！";
                         Toast.makeText(TiankongActivity.this, content,Toast.LENGTH_SHORT).show();
-
                         finish();
 
                     }  else {
-                        i++;
-                        if (updateQuestion(text_question) == -1) {
+                        count++;
+                        if (updateQuestion() == -1) {
                             null_question_handler();
                             but_submit.setVisibility(View.VISIBLE);
                             but_submit.setEnabled(true);
@@ -109,8 +115,9 @@ public class TiankongActivity extends BaseActivity {
         });
     }
 
-    private int updateQuestion(TextView text_question) {
-        now_question = HttpRequest.getNewQuestionBlank(id_user, id_theme);
+    private int updateQuestion() {
+        now_question = (QuestionBlank) HttpRequest.getQuestionById(ques_list.get(count-1), 0);
+
         if (now_question == null)
             return -1;
 

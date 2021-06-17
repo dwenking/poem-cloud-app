@@ -28,13 +28,6 @@ public class TaskActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_task);
 
 
-        if(theme==R.style.Theme_White){
-            this.getWindow().setBackgroundDrawableResource(R.drawable.lightback);
-        }
-        else{
-            this.getWindow().setBackgroundDrawableResource(R.drawable.darkback);
-        }
-
         Intent intent=getIntent();
         id_theme=intent.getIntExtra("id_theme",1);
 
@@ -52,22 +45,35 @@ public class TaskActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.task1:
-                Intent intent1=new Intent(TaskActivity.this, TiankongActivity.class);
-                intent1.putExtra("id_theme",id_theme);
-                startActivity(intent1);
-                finish();
+                if(score>=(id_theme-1)*3){
+                    Intent intent1=new Intent(TaskActivity.this, TiankongActivity.class);
+                    intent1.putExtra("id_theme",id_theme);
+                    startActivity(intent1);
+                    finish();
+                }else{
+                    Toast.makeText(TaskActivity.this,"请解锁前一关卡后再尝试！",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.task2:
-                Intent intent2=new Intent(TaskActivity.this, ChoiceActivity.class);
-                intent2.putExtra("id_theme",id_theme);
-                startActivity(intent2);
-                finish();
+                if(score>=(id_theme-1)*3+1){
+                    Intent intent2=new Intent(TaskActivity.this, ChoiceActivity.class);
+                    intent2.putExtra("id_theme",id_theme);
+                    startActivity(intent2);
+                    finish();
+
+                }else{
+                    Toast.makeText(TaskActivity.this,"请解锁前一关卡后再尝试！",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.task3:
-                Intent intent3=new Intent(TaskActivity.this, FeihuaActivity.class);
-                intent3.putExtra("id_theme",id_theme);
-                startActivity(intent3);
-                finish();
+                if(score>=(id_theme-1)*3+2){
+                    Intent intent3=new Intent(TaskActivity.this, FeihuaActivity.class);
+                    intent3.putExtra("id_theme",id_theme);
+                    startActivity(intent3);
+                    finish();
+                }else{
+                    Toast.makeText(TaskActivity.this,"请解锁前一关卡后再尝试！",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }

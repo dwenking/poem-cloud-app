@@ -52,16 +52,18 @@ public class PoemGenActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.activity_poem_gen);
 
         picture = (ImageView) findViewById(R.id.picture);
-        takePhoto = (Button) findViewById(R.id.take_photo);
+        //takePhoto = (Button) findViewById(R.id.take_photo);
         chooseFromAlbum = (Button) findViewById(R.id.choose_from_album);
 
-        takePhoto.setOnClickListener(this);
+        //takePhoto.setOnClickListener(this);
         chooseFromAlbum.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            /*
             case R.id.take_photo:
                 File outputImage = new File(getExternalCacheDir(),
                         "output_image.jpg");
@@ -84,6 +86,8 @@ public class PoemGenActivity extends BaseActivity implements View.OnClickListene
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(intent, TAKE_PHOTO);
                 break;
+
+             */
 
             case R.id.choose_from_album:
                 if (ContextCompat.checkSelfPermission(PoemGenActivity.this,
