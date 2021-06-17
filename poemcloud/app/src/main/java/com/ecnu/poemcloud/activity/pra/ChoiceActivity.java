@@ -254,6 +254,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                                 intent.putStringArrayListExtra("ansList", getSoluAns());
                                 intent.putStringArrayListExtra("quesList", getSoluQues());
                                 intent.putStringArrayListExtra("idList", getIdQues());
+                                intent.putExtra("id_theme",id_theme);
                                 startActivity(intent);
                                 finish();
                             }

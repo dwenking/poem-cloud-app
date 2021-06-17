@@ -1,7 +1,9 @@
 package com.ecnu.poemcloud.activity.pra;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -25,6 +27,7 @@ import java.util.List;
 public class TiankongActivity extends BaseActivity {
 
     private static final int MAX_COUNT = 5;
+    private static final int SUCCESS_SCORE = 3; // 通关题数
     private int id_theme;
 
     private List<String> soluList = new ArrayList<>(); //传给solution的题目list
@@ -37,6 +40,7 @@ public class TiankongActivity extends BaseActivity {
     private TextView text_question;
     private Button but_submit;
 
+    private int right_score=0;
     private int count = 1;
     private boolean null_flag = false;
 
@@ -72,6 +76,7 @@ public class TiankongActivity extends BaseActivity {
                     intent.putStringArrayListExtra("ansList", (ArrayList<String>) soluList);
                     intent.putStringArrayListExtra("quesList", (ArrayList<String>) textList);
                     intent.putStringArrayListExtra("idList", (ArrayList<String>) idList);
+                    intent.putExtra("id_theme",id_theme);
                     startActivity(intent);
                     return ;
                 }
@@ -79,37 +84,22 @@ public class TiankongActivity extends BaseActivity {
                 String user_answer = editText_answer.getText().toString();
 
                 if(HttpRequest.doQuestion(id_user, now_question.id_question, user_answer) == 1) {
-                    if(count == MAX_COUNT ){
-                        if(score==(id_theme-1)*3){
-                            HttpRequest.addScore(id_user, 1);
-                        }
+                    right_score++;
+                }
 
-                        Intent intent = new Intent(TiankongActivity.this, SoluActivity.class);
-                        intent.putStringArrayListExtra("ansList", (ArrayList<String>) soluList);
-                        intent.putStringArrayListExtra("quesList", (ArrayList<String>) textList);
-                        intent.putStringArrayListExtra("idList", (ArrayList<String>) idList);
-                        startActivity(intent);
-
-                        String content = "本关卡已通关！";
-                        Toast.makeText(TiankongActivity.this, content,Toast.LENGTH_SHORT).show();
-                        finish();
-
-                    }  else {
-                        count++;
-                        if (updateQuestion() == -1) {
-                            null_question_handler();
-                            but_submit.setVisibility(View.VISIBLE);
-                            but_submit.setEnabled(true);
-                        }
-                        //String content = "作答正确，还有" + Integer.toString(MAX_COUNT - i) + "题通关";
-                        //Toast.makeText(TiankongActivity.this, content, Toast.LENGTH_SHORT).show();
+                if(count == MAX_COUNT ){
+                    checkAnswers();
+                }  else {
+                    count++;
+                    if (updateQuestion() == -1) {
+                        null_question_handler();
+                        but_submit.setVisibility(View.VISIBLE);
+                        but_submit.setEnabled(true);
                     }
+                    //String content = "作答正确，还有" + Integer.toString(MAX_COUNT - i) + "题通关";
+                    //Toast.makeText(TiankongActivity.this, content, Toast.LENGTH_SHORT).show();
+                }
 
-                }
-                else{
-                    String content="回答不正确，请继续尝试";
-                    Toast.makeText(TiankongActivity.this, content,Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
@@ -135,6 +125,47 @@ public class TiankongActivity extends BaseActivity {
         editText_answer.setVisibility(View.INVISIBLE);
         but_submit.setVisibility(View.INVISIBLE);
     }
+
+    public void checkAnswers() {
+
+        /** 闯关信息组合 **/
+        String result = "你总共答对" + right_score + "道题";
+        String title = null;
+
+
+        if (right_score >= SUCCESS_SCORE) {
+            result += "\n恭喜你通关！";
+            title = "闯关成功";
+            if(score==(id_theme-1)*3)
+                HttpRequest.addScore(id_user, 1);
+        } else {
+            result += "\n闯关失败，请继续努力！";
+            title = "闯关失败";
+        }
+
+
+        /** 弹窗提醒 **/
+        AlertDialog notion = new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(result)
+                .setPositiveButton("确定",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent intent = new Intent(TiankongActivity.this, SoluActivity.class);
+                                intent.putStringArrayListExtra("ansList", (ArrayList<String>) soluList);
+                                intent.putStringArrayListExtra("quesList", (ArrayList<String>) textList);
+                                intent.putStringArrayListExtra("idList", (ArrayList<String>) idList);
+                                intent.putExtra("id_theme",id_theme);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                .create();
+        notion.show();
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
