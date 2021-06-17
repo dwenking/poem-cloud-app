@@ -42,6 +42,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String emailStr1 = accountEdit.getText().toString();
                 String passwordStr1 = passwordEdit.getText().toString();
 
+
+                boolean result = emailStr1.matches("[a-zA-Z0-9]+");//true:全文英文
+                if(!result){
+                    Toast.makeText(LoginActivity.this,"用户名仅支持英文和数字！", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                if(passwordStr1==null||passwordStr1.length()==0){
+                    Toast.makeText(LoginActivity.this,"密码不能为空！", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
                 Log.d("LoginActivity", emailStr1);
                 Log.d("LoginActivity", passwordStr1);
 

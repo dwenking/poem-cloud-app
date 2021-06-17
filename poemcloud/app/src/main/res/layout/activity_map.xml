@@ -5,7 +5,7 @@
     android:id="@+id/map_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/map3">
+    android:background="@drawable/mapback">
 
     <Button
         android:id="@+id/map1"
