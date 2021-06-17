@@ -29,13 +29,6 @@ public class ArticleActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
 
-        if(theme==R.style.Theme_White){
-            this.getWindow().setBackgroundDrawableResource(R.drawable.lightback);
-        }
-        else{
-            this.getWindow().setBackgroundDrawableResource(R.drawable.darkback);
-        }
-
         Intent intent=getIntent();
         id_theme=intent.getIntExtra("id_theme",1);
 

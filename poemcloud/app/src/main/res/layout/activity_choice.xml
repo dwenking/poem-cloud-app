@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginRight="-10dp"
         android:background="@drawable/fangkuang"
@@ -26,7 +26,7 @@
     <Button
         android:id="@+id/optionA"
         style="@style/option_button"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/optionB"
         style="@style/option_button"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionA" />
@@ -43,7 +43,7 @@
     <Button
         android:id="@+id/optionC"
         style="@style/option_button"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionB" />
@@ -51,7 +51,7 @@
     <Button
         android:id="@+id/optionD"
         style="@style/option_button"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
     <Button
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"

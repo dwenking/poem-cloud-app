@@ -45,7 +45,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         username=findViewById(R.id.user);
         levelnum=findViewById(R.id.level);
 
-        checkrank=findViewById(R.id.checkrank);
+        //checkrank=findViewById(R.id.checkrank);
         logout=findViewById(R.id.logout);
         project=findViewById(R.id.project);
         bgm=findViewById(R.id.bgm);

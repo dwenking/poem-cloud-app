@@ -25,7 +25,7 @@ public class FeihuaActivity extends BaseActivity {
     private EditText one;
     private EditText two;
     private EditText three;
-    private EditText four;
+    //private EditText four;
 
     private int i = 1;
     private static final int MAX_COUNT = 3;
@@ -45,7 +45,7 @@ public class FeihuaActivity extends BaseActivity {
         one = findViewById(R.id.ans1);
         two = findViewById(R.id.ans2);
         three =findViewById(R.id.ans3);
-        four = findViewById(R.id.ans4);
+        //four = findViewById(R.id.ans4);
 
         String[] arrayStr =all.split(",");
 
@@ -62,17 +62,22 @@ public class FeihuaActivity extends BaseActivity {
                 String oneText=one.getText().toString().trim();
                 String twoText=two.getText().toString().trim();
                 String threeText=three.getText().toString().trim();
-                String fourText=four.getText().toString().trim();
+                //String fourText=four.getText().toString().trim();
                 String key=textView.getText().toString().trim();
 
-                if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)&&fourText.contains(key)
-                        &&oneText.length()>3&&twoText.length()>3&&threeText.length()>3&&fourText.length()>3){
+                if(oneText.contains(key)&&twoText.contains(key)&&threeText.contains(key)
+                        &&oneText.length()>3&&twoText.length()>3&&threeText.length()>3){
                     if(i==MAX_COUNT){
                         String content="本关卡已通关！";
-                        Toast.makeText(FeihuaActivity.this, content,Toast.LENGTH_SHORT ).show();
+                        Toast.makeText(FeihuaActivity.this, content,Toast.LENGTH_SHORT).show();
                         if(score==(id_theme-1)*3+2){
                             HttpRequest.addScore(id_user, 1);
                         }
+
+                        Intent intent=new Intent(FeihuaActivity.this, TaskActivity.class);
+                        intent.putExtra("id_theme",id_theme);
+                        startActivity(intent);
+                        finish();
                     }
                     else {
                         i++;
@@ -84,7 +89,7 @@ public class FeihuaActivity extends BaseActivity {
                     one.setText("");
                     two.setText("");
                     three.setText("");
-                    four.setText("");
+                    //four.setText("");
                 }
                 else{
                     String content="回答不正确或不符合诗句格式要求，请继续尝试";

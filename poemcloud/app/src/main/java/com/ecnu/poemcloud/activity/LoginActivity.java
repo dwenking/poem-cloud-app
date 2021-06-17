@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,6 +66,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String emailStr2 = accountEdit.getText().toString();
                 String passwordStr2 = passwordEdit.getText().toString();
 
+                Log.d("LoginActivity", emailStr2);
+                Log.d("LoginActivity", passwordStr2);
                 String login_response = HttpRequest.login(emailStr2, passwordStr2);
 
                 //Log.d("LoginActivity", login_response);
@@ -91,5 +94,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
         }
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import com.ecnu.poemcloud.R;
 import com.ecnu.poemcloud.activity.BaseActivity;
 import com.ecnu.poemcloud.activity.SoluActivity;
 import com.ecnu.poemcloud.activity.TaskActivity;
+import com.ecnu.poemcloud.entity.QuestionBlank;
 import com.ecnu.poemcloud.entity.QuestionChoice;
 import com.ecnu.poemcloud.utils.HttpRequest;
 
@@ -50,11 +52,13 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
     List<Integer> scoreList = new ArrayList<>();
     List<String> idList = new ArrayList<>();
 
+    private List<Integer> ques_list=new ArrayList<>();
+
     QuestionChoice now_question = null;
 
     String my_answer;
 
-    private int count;
+    private int count=1;
     private int null_flag = 0;
 
 
@@ -63,13 +67,15 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
-        count= 1;
-
         Intent intent=getIntent();
         id_theme=intent.getIntExtra("id_theme",1);
         score = HttpRequest.getScoreByEmail(user_email);
 
         mQuestion = (TextView) findViewById(R.id.question);
+
+        //Log.d("Choice",String.valueOf(id_theme));
+        // 初始化ques_list
+        ques_list = HttpRequest.getIdQuestionList(id_theme, 1, MAX_COUNT);
 
         /** option A **/
         mOptionA = (Button) findViewById(R.id.optionA);
@@ -142,9 +148,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
                 EnableOptions();
                 if (mCurrentCount == MAX_COUNT - 1) {
                     mNextButton.setEnabled(false);
-                    Toast.makeText(ChoiceActivity.this,
-                            "最后一题",
-                            Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ChoiceActivity.this,"最后一题",Toast.LENGTH_SHORT).show();
                     mSubmitButton.setEnabled(true);
                 }
                 if (userAnswerList.size() != mCurrentCount)
@@ -164,7 +168,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
     public int updateQuestion() {
         if (mCurrentCount < MAX_COUNT) {
 
-            now_question = HttpRequest.getNewQuestionChoice(id_user, id_theme);
+            now_question = (QuestionChoice) HttpRequest.getQuestionById(ques_list.get(count-1), 1);
             if (now_question == null)
                 return -1;
 
@@ -173,7 +177,7 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
 
 
 
-            String content = "第" + count + "题 : \n" + now_question.text;
+            String content = now_question.text;
             mQuestion.setText(content);
             mOptionA.setText(now_question.option_a);
             mOptionB.setText(now_question.option_b);
@@ -194,12 +198,13 @@ public class ChoiceActivity extends BaseActivity implements View.OnClickListener
             userAnswerList.add(answer);
 
             int tmp = HttpRequest.doQuestion(id_user, now_question.id_question, answer);
+
             if (tmp == 0) {
-                Toast.makeText(this, "wrong answer!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "wrong answer!", Toast.LENGTH_SHORT).show();
                 return -1;
             }
             else
-                scoreList.add(tmp);
+            scoreList.add(tmp);
 
 //        } else {
 //            userAnswerList.set(mCurrentCount, answer);

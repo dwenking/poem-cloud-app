@@ -59,6 +59,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             theme = savedInstanceState.getInt("theme");
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

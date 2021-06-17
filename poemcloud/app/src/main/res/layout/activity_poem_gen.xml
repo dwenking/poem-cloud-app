@@ -26,6 +26,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="10dp"
@@ -35,15 +36,24 @@
 
     <TextView
         android:id="@+id/poem_text"
-        android:layout_width="268dp"
-        android:layout_height="135dp"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/picture"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="110dp"
         android:background="@color/transparent"
         android:scaleType="centerCrop"
         android:textColor="@color/black"
+        android:gravity="center"
         android:textSize="20dp" />
 
     <LinearLayout
@@ -51,23 +61,23 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp">
-    <Button
+        android:layout_marginBottom="30dp">
+    <!--Button
         android:id="@+id/take_photo"
         style="@style/SignupTextView"
         android:layout_toRightOf="@+id/choose_from_album"
         android:text="@string/take_photo"
         android:textColor="@color/main_blue"
-        android:background="@drawable/minibutton_blue"/>
+        android:background="@drawable/minibutton_blue"/-->
 
-    <Button
-        android:id="@+id/choose_from_album"
-        style="@style/SignupTextView"
-        android:text="@string/choose_from_album"
-        android:padding="5dp"
+        <Button
+            android:id="@+id/choose_from_album"
+            style="@style/SignupTextView"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/minibutton_blue"
 
-        android:textColor="@color/main_blue"
-        android:background="@drawable/minibutton_blue"
-        android:layout_alignParentTop="true"/>
+            android:padding="5dp"
+            android:text="@string/choose_from_album"
+            android:textColor="@color/main_blue" />
     </LinearLayout>
 </RelativeLayout>

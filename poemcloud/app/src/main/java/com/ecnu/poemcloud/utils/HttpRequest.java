@@ -248,6 +248,20 @@ public class HttpRequest {
         return gson.fromJson(response, new TypeToken<List<User>>(){}.getType());
     }
 
+    public static List<Integer> getIdQuestionList(int id_theme, int type, int limit) {
+        Map<String, String> param = new HashMap<>();
+        param.put("id_theme", String.valueOf(id_theme));
+        param.put("type", String.valueOf(type));
+        param.put("limit", String.valueOf(limit));
+
+        String address = HttpUtils.appendUrl("/getIdQuestionList", param);
+        HttpCallbackListener listener = new HttpCallbackListener();
+
+        HttpUtils.sendHttpRequest(address, listener, "GET");
+        String response = listener.getResponse();
+
+        return gson.fromJson(response, new TypeToken<List<Integer>>(){}.getType());
+    }
 
 }
 

@@ -142,7 +142,7 @@
             android:layout_toRightOf="@+id/level"
             android:scaleType="fitXY"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="90dp"
             android:background="#00000000"/>
 
         <ImageView
