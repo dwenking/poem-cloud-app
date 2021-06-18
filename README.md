@@ -22,8 +22,6 @@ Apk下载地址：[百度网盘下载](https://pan.baidu.com/s/1gPxsqreAnUoQ7fRz
 * **边塞征战**
 * **即事感怀**
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210618105806133.png" alt="image-20210618105806133" style="zoom:50%;" />
-
 
 
 **二、两种模式：**
@@ -37,21 +35,15 @@ Apk下载地址：[百度网盘下载](https://pan.baidu.com/s/1gPxsqreAnUoQ7fRz
   * 飞花令
 * **夜晚模式**：用户可以查看当前诗词体裁的文学常识，在做题的基础上进一步深入了解该主题的背景知识，强化学习效果。
 
-![image-20210618105848912](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210618105848912.png)
-
 
 
 **三、三个阶段：**
 
 为了提高用户答题积极性和趣味性，我们设计了地图中的**UI根据用户等级的提升而变化的机制**。随着用户的闯关，用户的主页会变得更加丰富漂亮。
 
-UI的进化主要有三个阶段，实例如下：
 
-![image-20210618105712752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210618105712752.png)
 
 此外，排行榜的设置为本项目增加了更多社交属性，用户可以和朋友们一起注册账号并实时比拼当前等级。
-
-
 
 
 
