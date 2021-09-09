@@ -4,8 +4,7 @@
 
 后端代码请访问：[PoemCloud-Backend](https://github.com/ShawnShawnYou/PoemCloud-Backend)。
 
-Apk下载地址：[百度网盘下载](https://pan.baidu.com/s/1gPxsqreAnUoQ7fRziZHq2Q)，提取码：sqeb 。
-
+注意：服务器已经停止维护，用户需要在自己电脑上配置好后端才能正常运行客户端代码。
 
 
 # 项目功能
